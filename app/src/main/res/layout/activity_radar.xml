@@ -13,7 +13,9 @@
         android:layout_height="85dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/radar"
-        android:text="Button" />
+        android:text="Button"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="177dp" />
 
 
 </android.support.constraint.ConstraintLayout>
