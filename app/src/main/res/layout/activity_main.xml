@@ -7,31 +7,24 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/imageView"
-        android:src="@drawable/weather"
+        android:src="@drawable/sky"
         android:scaleType="centerCrop"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <!--<ImageView-->
+    <ImageView
 
-        <!--android:id="@+id/globalButton"-->
-        <!--android:layout_width="65dp"-->
-        <!--android:layout_height="65dp"-->
-
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginTop="17dp"-->
-        <!--android:src="@drawable/globe"-->
-        <!--android:text="Button" />-->
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Weather Around the World"
         android:id="@+id/globalButton"
-        android:background="@color/colorAccent"
-        android:textColor="@color/colorTextIcons"
-       />
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:src="@drawable/globe"
+        android:text="Button" />
+
 
     <EditText
         android:layout_width="wrap_content"

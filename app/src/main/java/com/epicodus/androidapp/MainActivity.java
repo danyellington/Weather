@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.locationButton)
     Button mLocationButton;
     @BindView(R.id.globalButton)
-    Button mGlobalButton;
+   ImageView mGlobalButton;
     @BindView(R.id.locationEditText)
     EditText mLocationEditText;
 
@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mGlobalButton = (Button) findViewById(R.id.globalButton);
-        mGlobalButton.setOnClickListener(new View.OnClickListener() {
+        ImageView Button = (ImageView) findViewById(R.id.globalButton);
+        Button.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
