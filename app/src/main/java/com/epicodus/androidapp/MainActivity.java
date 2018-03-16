@@ -20,9 +20,15 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.locationButton)
     Button mLocationButton;
     @BindView(R.id.globalButton)
-   ImageView mGlobalButton;
+    ImageView mGlobalButton;
     @BindView(R.id.locationEditText)
     EditText mLocationEditText;
+    @BindView(R.id.textView)
+    TextView mTextView;
+    @BindView(R.id.textView2)
+    TextView mTextView2;
+    @BindView(R.id.textView3)
+    TextView mTextView3;
 
 
     @Override
@@ -32,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Typeface rubikFont = Typeface.createFromAsset(getAssets(), "fonts/rubik.ttf");
-//        mAppNameTextView.setTypeface(rubikFont);
+        mTextView.setTypeface(rubikFont);
+        mTextView2.setTypeface(rubikFont);
+        mTextView3.setTypeface(rubikFont);
 
         mLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
