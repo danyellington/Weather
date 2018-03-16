@@ -60,7 +60,7 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
                 Intent intent = getIntent();
                 String location = intent.getStringExtra("location");
                 mLocationTextView.setText("Daily Forecast for: " + location);
-                if(position==0){
+                if(position>0){
                     Intent i=new Intent(LocalActivity.this, DailyActivity.class);
                     startActivity(i);
 
