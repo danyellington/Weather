@@ -14,10 +14,13 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.locationButton) Button mLocationButton;
-    @BindView(R.id.locationEditText) EditText mLocationEditText;
-    @BindView(R.id.appNameTextView)
-    TextView mAppNameTextView;
+    @BindView(R.id.locationButton)
+    Button mLocationButton;
+    @BindView(R.id.globalButton)
+    Button mGlobalButton;
+    @BindView(R.id.locationEditText)
+    EditText mLocationEditText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +40,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        mGlobalButton = (Button) findViewById(R.id.globalButton);
+        mGlobalButton.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, GlobalActivity.class);
+
+                startActivity(intent);
+            }
+
+        });
     }
+
 }
-
-
 
 
 //    @BindView(R.id.locationButton)
