@@ -40,16 +40,32 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
 
 
 
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                String days = ((TextView) view).getText().toString();
+//                Toast.makeText(LocalActivity.this, days, Toast.LENGTH_LONG).show();
+//                Intent intent = getIntent();
+//                String location = intent.getStringExtra("location");
+//                mLocationTextView.setText("Daily Forecast for: " + location);
+//
+//            }
+//
+//        });
+
+
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String days = ((TextView) view).getText().toString();
                 Toast.makeText(LocalActivity.this, days, Toast.LENGTH_LONG).show();
                 Intent intent = getIntent();
                 String location = intent.getStringExtra("location");
-                mLocationTextView.setText("Weekly Forecast for: " + location);
+                mLocationTextView.setText("Daily Forecast for: " + location);
+                if(position==0){
+                    Intent i=new Intent(LocalActivity.this, DailyActivity.class);
+                    startActivity(i);
 
+                }
             }
-
         });
 
 

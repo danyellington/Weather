@@ -14,8 +14,7 @@ import butterknife.ButterKnife;
 public class RadarActivity extends AppCompatActivity {
     @BindView(R.id.goToRadarButton)
     ImageView mGoToRadarButton;
-    @BindView(R.id.radarTextView)
-    TextView mRadarTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

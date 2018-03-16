@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".LocalActivity" />
         <activity android:name=".GlobalActivity" />
-        <activity android:name=".RadarActivity"></activity>
+        <activity android:name=".RadarActivity" />
+        <activity android:name=".DailyActivity"></activity>
     </application>
 
 </manifest>
