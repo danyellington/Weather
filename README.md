@@ -8,7 +8,6 @@ This application can display the weather and forecast in a location provided by 
 | Behavior | Input | Output |
 |:----------------- |:----------------- |:----------------- |
 |User enters location | Portland, OR | Up to date 7 day forecast is returned
-
 |User can select day of the week | Tuesday | Tuesday's forecast is displayed
 |User selects weather around the world | clicks button | Top cities current weather conditions display
 |App can display current radar (coming soon) | view radar | live radar is displayed
