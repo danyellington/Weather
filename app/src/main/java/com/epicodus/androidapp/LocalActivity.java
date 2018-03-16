@@ -16,6 +16,8 @@ import butterknife.ButterKnife;
 public class LocalActivity extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.locationTextView)
     TextView mLocationTextView;
+    @BindView(R.id.textView4)
+    TextView mTextView4;
     @BindView(R.id.listView)
     ListView mListView;
     @BindView(R.id.radarButton)
@@ -26,41 +28,28 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
 
     private String[] nights = new String[]{"High/Low:", "High/Low:", "High/Low:", "High/Low:", "High/Low:", "High/Low:", "High/Low:",};
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local);
         ButterKnife.bind(this);
+        Intent in = getIntent();
+        String tv1= in.getExtras().getString("location");
+        mTextView4.setText(tv1);
         mRadarButton.setOnClickListener(this);
         LocalAdapter adapter = new LocalAdapter(this, android.R.layout.simple_list_item_1, days, nights);
         mListView.setAdapter(adapter);
-
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+
         {
 
 
 
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                String days = ((TextView) view).getText().toString();
-//                Toast.makeText(LocalActivity.this, days, Toast.LENGTH_LONG).show();
-//                Intent intent = getIntent();
-//                String location = intent.getStringExtra("location");
-//                mLocationTextView.setText("Daily Forecast for: " + location);
-//
-//            }
-//
-//        });
-
-
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String days = ((TextView) view).getText().toString();
-                Toast.makeText(LocalActivity.this, days, Toast.LENGTH_LONG).show();
-                Intent intent = getIntent();
-                String location = intent.getStringExtra("location");
-                mLocationTextView.setText("Daily Forecast for: " + location);
-                if(position>0){
+                if(position>=0){
                     Intent i=new Intent(LocalActivity.this, DailyActivity.class);
                     startActivity(i);
 
