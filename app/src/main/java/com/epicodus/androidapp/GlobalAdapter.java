@@ -7,20 +7,20 @@ import android.widget.ArrayAdapter;
 public class GlobalAdapter extends ArrayAdapter {
     private Context mContext;
     private String[] mCities;
-    private String[] mTemps;
 
-    public GlobalAdapter(Context mContext, int resource, String[] mCities, String[] mTemps) {
+
+    public GlobalAdapter(Context mContext, int resource, String[] mCities) {
         super(mContext, resource);
         this.mContext = mContext;
         this.mCities = mCities;
-        this.mTemps = mTemps;
+
     }
 
     @Override
     public Object getItem(int position) {
         String cities = mCities[position];
-        String temps = mTemps[position];
-        return String.format("%s \n %s", cities, temps);
+
+        return String.format("%s \n %s", cities);
     }
 
     @Override

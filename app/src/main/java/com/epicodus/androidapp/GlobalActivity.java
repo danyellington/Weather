@@ -20,17 +20,15 @@ public class GlobalActivity extends AppCompatActivity {
 
     };
 
-    private String[] temps = new String[] {"Portland", "New York", "Tokyo", "London", "Paris", "Berlin", "Dubai", "Rio", "Toronto", "Reykjavik", "Cairo", "Beijing", "Delhi"
 
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_local);
+        setContentView(R.layout.activity_global);
         ButterKnife.bind(this);
 
-        GlobalAdapter adapter = new GlobalAdapter(this, android.R.layout.simple_list_item_1, cities, temps);
+        GlobalAdapter adapter = new GlobalAdapter(this, android.R.layout.simple_list_item_1, cities);
         mGlobalListView.setAdapter(adapter);
 
         mGlobalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -41,9 +39,7 @@ public class GlobalActivity extends AppCompatActivity {
             }
         });
 
-        Intent intent = getIntent();
-        String location = intent.getStringExtra("location");
 
-        mGlobalTextView.setText("Here: " + location);
+
     }
 }

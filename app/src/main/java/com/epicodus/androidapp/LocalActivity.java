@@ -46,7 +46,7 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
                 Toast.makeText(LocalActivity.this, days, Toast.LENGTH_LONG).show();
                 Intent intent = getIntent();
                 String location = intent.getStringExtra("location");
-                mLocationTextView.setText("Here: " + location);
+                mLocationTextView.setText("Weekly Forecast for: " + location);
 
             }
 
