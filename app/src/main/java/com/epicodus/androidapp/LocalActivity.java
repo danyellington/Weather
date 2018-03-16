@@ -24,7 +24,7 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
 
     private String[] days = new String[]{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
-    private String[] nights = new String[]{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    private String[] nights = new String[]{"High/Low:", "High/Low:", "High/Low:", "High/Low:", "High/Low:", "High/Low:", "High/Low:",};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

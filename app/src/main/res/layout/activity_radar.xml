@@ -6,11 +6,14 @@
     android:layout_height="match_parent"
     tools:context="com.epicodus.androidapp.RadarActivity">
 
-    <TextView
-        android:id="@+id/radarTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Radar"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="162dp" />
+    <ImageView
+
+        android:id="@+id/goToRadarButton"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/radar"
+        android:text="Button" />
+
+
 </android.support.constraint.ConstraintLayout>
