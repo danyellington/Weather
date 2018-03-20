@@ -1,4 +1,4 @@
-package com.epicodus.androidapp;
+package com.epicodus.androidapp.adapters;
 
 
 import android.content.Context;

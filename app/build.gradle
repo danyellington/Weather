@@ -1,6 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
+    buildTypes.each {
+        it.buildConfigField 'String', 'WEATHER_KEY', WeatherKey
+    }
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.epicodus.androidapp"
@@ -27,4 +30,7 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'org.parceler:parceler-api:1.1.6'
+    annotationProcessor 'org.parceler:parceler:1.1.6'
 }
