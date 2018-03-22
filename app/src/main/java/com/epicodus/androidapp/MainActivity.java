@@ -41,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
         mTextView.setTypeface(rubikFont);
         mTextView2.setTypeface(rubikFont);
         mTextView3.setTypeface(rubikFont);
-
         mLocationButton.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
                 String location = mLocationEditText.getText().toString();
@@ -63,22 +64,16 @@ public class MainActivity extends AppCompatActivity {
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
                 intent.setData(Uri.parse("https://www.accuweather.com/en/world-weather"));
                 startActivity(intent);
-
             }
 
         });
-        Button.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                EditText Location = (EditText) findViewById(R.id.locationEditText);
-                Intent i = new Intent(MainActivity.this, LocalActivity.class);
-                i.putExtra("location", Location.getText().toString());
-                startActivity(i);
-            }
-        });
+        EditText Location = (EditText) findViewById(R.id.locationEditText);
+        Intent i = new Intent(MainActivity.this, LocalActivity.class);
+        i.putExtra("location", Location.getText().toString());
+        startActivity(i);
     }
-    }
+}
 
 
 
