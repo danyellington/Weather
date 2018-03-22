@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.epicodus.androidapp">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/weather"
@@ -9,17 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LocalActivity" />
-        <activity android:name=".GlobalActivity" />
-        <activity android:name=".RadarActivity" />
-        <activity android:name=".DailyActivity"></activity>
+        <activity android:name=".ui.LocalActivity" />
+        <activity android:name=".ui.GlobalActivity" />
+        <activity android:name=".ui.RadarActivity" />
+        <activity android:name=".ui.DailyActivity"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.epicodus.androidapp;
+package com.epicodus.androidapp.ui;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.epicodus.androidapp.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

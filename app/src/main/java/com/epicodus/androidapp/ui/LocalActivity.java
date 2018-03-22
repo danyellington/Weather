@@ -1,4 +1,4 @@
-package com.epicodus.androidapp;
+package com.epicodus.androidapp.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,10 +8,19 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.epicodus.androidapp.R;
+import com.epicodus.androidapp.adapters.LocalAdapter;
+import com.epicodus.androidapp.models.Forecast;
+import com.epicodus.androidapp.services.WeatherService;
+
+import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class LocalActivity extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.locationTextView)
@@ -28,7 +37,27 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
 
     private String[] nights = new String[]{"High/Low:", "High/Low:", "High/Low:", "High/Low:", "High/Low:", "High/Low:", "High/Low:",};
 
+    private void getWeather(String location) {
+        final WeatherService weatherService = new WeatherService();
 
+        weatherService.findForecast(location, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) {
+                Forecast forecast = weatherService.processResult(response);
+                LocalActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                    }
+                });
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

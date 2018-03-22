@@ -1,8 +1,7 @@
-package com.epicodus.androidapp;
+package com.epicodus.androidapp.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.epicodus.androidapp.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,10 +47,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                String location = mLocationEditText.getText().toString();
+            String location = mLocationEditText.getText().toString().trim().replaceAll("\\s", "_");
+            if (!location.equals("")) {
                 Intent intent = new Intent(MainActivity.this, LocalActivity.class);
                 intent.putExtra("location", location);
                 startActivity(intent);
+            }
             }
         });
 
@@ -68,12 +71,16 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        EditText Location = (EditText) findViewById(R.id.locationEditText);
-        Intent i = new Intent(MainActivity.this, LocalActivity.class);
-        i.putExtra("location", Location.getText().toString());
-        startActivity(i);
+
+                EditText Location = (EditText) findViewById(R.id.locationEditText);
+                Intent i = new Intent(MainActivity.this, LocalActivity.class);
+                i.putExtra("location", Location.getText().toString());
+                startActivity(i);
+
     }
-}
+
+    }
+
 
 
 
