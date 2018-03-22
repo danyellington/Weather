@@ -47,12 +47,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-            String location = mLocationEditText.getText().toString().trim().replaceAll("\\s", "_");
-            if (!location.equals("")) {
-                Intent intent = new Intent(MainActivity.this, LocalActivity.class);
-                intent.putExtra("location", location);
-                startActivity(intent);
-            }
+                String location = mLocationEditText.getText().toString().trim().replaceAll("\\s", "_");
+                if (!location.equals("")) {
+                    Intent intent = new Intent(MainActivity.this, LocalActivity.class);
+                    intent.putExtra("location", location);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -72,14 +72,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-                EditText Location = (EditText) findViewById(R.id.locationEditText);
-                Intent i = new Intent(MainActivity.this, LocalActivity.class);
-                i.putExtra("location", Location.getText().toString());
-                startActivity(i);
-
+        EditText Location = (EditText) findViewById(R.id.locationEditText);
+        Intent i = new Intent(MainActivity.this, LocalActivity.class);
+        i.putExtra("location", Location.getText().toString());
+        startActivity(i);
     }
-
-    }
+}
 
 
 
