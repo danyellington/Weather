@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         mTextView.setTypeface(rubikFont);
         mTextView2.setTypeface(rubikFont);
         mTextView3.setTypeface(rubikFont);
-
         mLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,16 +69,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-        Button.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
                 EditText Location = (EditText) findViewById(R.id.locationEditText);
                 Intent i = new Intent(MainActivity.this, LocalActivity.class);
                 i.putExtra("location", Location.getText().toString());
                 startActivity(i);
-            }
-        });
+
     }
     }
 
