@@ -7,28 +7,20 @@ import org.parceler.Parcel;
 public class Forecast {
     Double maxTemperature;
     Double minTemperature;
-    Double avgTemperature;
-    String condition;
-    String conditionIcon;
-    String windDirection;
     Double precipitation;
     Double humidity;
-    Double visibility;
+    String name;
 
 
-    public Forecast() {
-    }
 
-    public Forecast(Double maxTemperature, Double minTemperature, Double avgTemperature, String condition, String conditionIcon, String windDirection, Double precipitation, Double humidity, Double visibility) {
+    public Forecast() {}
+
+    public Forecast(Double maxTemperature, Double minTemperature, Double precipitation, Double humidity) {
         this.maxTemperature = maxTemperature;
         this.minTemperature = minTemperature;
-        this.avgTemperature = avgTemperature;
-        this.condition = condition;
-        this.conditionIcon = conditionIcon;
-        this.windDirection = windDirection;
         this.precipitation = precipitation;
         this.humidity = humidity;
-        this.visibility = visibility;
+        this.name = name;
     }
 
     public Double getMaxTemperature() {
@@ -47,38 +39,6 @@ public class Forecast {
         this.minTemperature = minTemperature;
     }
 
-    public Double getAvgTemperature() {
-        return avgTemperature;
-    }
-
-    public void setAvgTemperature(Double avgTemperature) {
-        this.avgTemperature = avgTemperature;
-    }
-
-    public String getCondition() {
-        return condition;
-    }
-
-    public void setCondition(String condition) {
-        this.condition = condition;
-    }
-
-    public String getConditionIcon() {
-        return conditionIcon;
-    }
-
-    public void setConditionIcon(String conditionIcon) {
-        this.conditionIcon = conditionIcon;
-    }
-
-    public String getWindDirection() {
-        return windDirection;
-    }
-
-    public void setWindDirection(String windDirection) {
-        this.windDirection = windDirection;
-    }
-
     public Double getPrecipitation() {
         return precipitation;
     }
@@ -95,12 +55,12 @@ public class Forecast {
         this.humidity = humidity;
     }
 
-    public Double getVisibility() {
-        return visibility;
+    public String getName() {
+        return name;
     }
 
-    public void setVisibility(Double visibility) {
-        this.visibility = visibility;
+    public void setName(String name) {
+        this.name = name;
     }
 }
 

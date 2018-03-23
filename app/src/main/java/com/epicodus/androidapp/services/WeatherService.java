@@ -43,15 +43,10 @@ public class WeatherService {
             JSONObject forecastJSON = weatherJSON.getJSONObject("current");
             Double maxTemperature = forecastJSON.getDouble("maxtemp_f");
             Double minTemperature = forecastJSON.getDouble("mintemp_f");
-            Double avgTemperature = forecastJSON.getDouble("avgtemp_f");
-            JSONObject condition = forecastJSON.getJSONObject("condition");
-            String conditionString = condition.getString("text");
-            String conditionIcon = condition.getString("icon");
-            String windDirection = forecastJSON.getString("maxwind_mph");
-            Double precipitation = forecastJSON.getDouble("totalprecip_in");
-            Double humidity = forecastJSON.getDouble("avghumidity");
-            Double visibility = forecastJSON.getDouble("avgvis_miles");
-            forecast = new Forecast(maxTemperature, minTemperature, avgTemperature, conditionString, conditionIcon, windDirection, precipitation, humidity, visibility);
+            Double humidity = forecastJSON.getDouble("humidity");
+            String name = forecastJSON.getString("text");
+
+            forecast = new Forecast(maxTemperature, minTemperature, humidity, name);
             return forecast;
         } catch (IOException e) {
             e.printStackTrace();

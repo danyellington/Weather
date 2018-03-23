@@ -3,6 +3,8 @@ package com.epicodus.androidapp.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -15,6 +17,7 @@ import com.epicodus.androidapp.models.Forecast;
 import com.epicodus.androidapp.services.WeatherService;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +26,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class LocalActivity extends AppCompatActivity implements View.OnClickListener{
+    public static final String TAG = LocalActivity.class.getSimpleName();
     @BindView(R.id.locationTextView)
     TextView mLocationTextView;
     @BindView(R.id.textView4)
@@ -31,13 +35,14 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
     ListView mListView;
     @BindView(R.id.radarButton)
     Button mRadarButton;
+    @BindView(R.id.recyclerView)
+    RecyclerView mRecyclerView;
+    private LocalAdapter mAdapter;
+
+    public ArrayList<Forecast> forecasts = new ArrayList<>();
 
 
-    private String[] days = new String[]{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-
-    private String[] nights = new String[]{"High/Low:", "High/Low:", "High/Low:", "High/Low:", "High/Low:", "High/Low:", "High/Low:",};
-
-    private void getWeather(String location) {
+    public void getForecast(String location) {
         final WeatherService weatherService = new WeatherService();
 
         weatherService.findForecast(location, new Callback() {
@@ -52,6 +57,12 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
                 LocalActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        mAdapter = new LocalAdapter(getApplicationContext(),forecasts);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager =
+                                new LinearLayoutManager(LocalActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
 
                     }
                 });
@@ -68,23 +79,24 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
         String tv1= in.getExtras().getString("location");
         mTextView4.setText(tv1);
         mRadarButton.setOnClickListener(this);
-        LocalAdapter adapter = new LocalAdapter(this, android.R.layout.simple_list_item_1, days, nights);
-        mListView.setAdapter(adapter);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
 
+//        mListView.setAdapter(adapter);
+//        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+
+            getForecast("location");
         {
 
 
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position>=0){
-                    Intent i=new Intent(LocalActivity.this, DailyActivity.class);
-                    startActivity(i);
-
-                }
-            }
-        });
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                if(position>=0){
+//                    Intent i=new Intent(LocalActivity.this, DailyActivity.class);
+//                    startActivity(i);
+//
+//                }
+//            }
+        }
 
 
 
