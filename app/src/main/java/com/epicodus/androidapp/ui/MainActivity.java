@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("location", location);
                     startActivity(intent);
                 }
+
+
             }
         });
 
@@ -72,10 +74,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        EditText Location = (EditText) findViewById(R.id.locationEditText);
-        Intent i = new Intent(MainActivity.this, LocalActivity.class);
-        i.putExtra("location", Location.getText().toString());
-        startActivity(i);
+//        EditText Location = (EditText) findViewById(R.id.locationEditText);
+//        Intent i = new Intent(MainActivity.this, LocalActivity.class);
+//        i.putExtra("location", Location.getText().toString());
+//        startActivity(i);
+
     }
 }
 

@@ -41,7 +41,6 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
 
     public ArrayList<Forecast> mForecasts = new ArrayList<>();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

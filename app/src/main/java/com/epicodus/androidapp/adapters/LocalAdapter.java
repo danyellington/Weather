@@ -32,7 +32,7 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
 
         @Override
         public LocalAdapter.ForecastViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.local_list_item_daily, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_local_list, parent, false);
             ForecastViewHolder viewHolder = new ForecastViewHolder(view);
             return viewHolder;
         }
@@ -55,6 +55,7 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
             @BindView(R.id.max) TextView mMax;
             @BindView(R.id.min) TextView mMin;
             @BindView(R.id.humidity) TextView mHumidity;
+            @BindView(R.id.precipitation) TextView mPrecipitation;
 
             private Context mContext;
 
@@ -69,10 +70,10 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
             public void bindForecast(Forecast forecast) {
 
                 mName.setText(forecast.getName());
-//                mMax.setText(forecast.getMaxTemperature());
-//                mMax.setText(forecast.getMinTemperature());
-//                mMin.setText(forecast.getPrecipitation());
-//                mHumidity.setText(forecast.getHumidity());
+                mMax.setText(forecast.getMaxTemperature());
+                mMax.setText(forecast.getMinTemperature());
+                mMin.setText(forecast.getPrecipitation());
+                mHumidity.setText(forecast.getHumidity());
 
 
             }

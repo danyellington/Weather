@@ -22,8 +22,6 @@
         <activity android:name=".ui.GlobalActivity" />
         <activity android:name=".ui.RadarActivity" />
         <activity android:name=".ui.DailyActivity" />
-        <activity android:name=".ui.LocalDetailActivity" />
-        <activity android:name=".ui.LocalListActivity"></activity>
     </application>
 
 </manifest>

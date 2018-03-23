@@ -40,7 +40,7 @@ public class WeatherService {
         try {
             String jsonData = response.body().string();
             JSONObject weatherJSON = new JSONObject(jsonData);
-            JSONObject forecastJSON = weatherJSON.getJSONObject("current");
+            JSONObject forecastJSON = weatherJSON.getJSONObject("location");
             Double maxTemperature = forecastJSON.getDouble("maxtemp_f");
             Double minTemperature = forecastJSON.getDouble("mintemp_f");
             Double humidity = forecastJSON.getDouble("humidity");
