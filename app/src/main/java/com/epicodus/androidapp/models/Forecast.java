@@ -2,9 +2,10 @@ package com.epicodus.androidapp.models;
 
 import org.parceler.Parcel;
 
+import java.util.ArrayList;
 
-@Parcel
-public class Forecast {
+
+public class Forecast extends ArrayList<Forecast> {
     Double maxTemperature;
     Double minTemperature;
     Double precipitation;
@@ -12,16 +13,19 @@ public class Forecast {
     String name;
 
 
+//    public Forecast() {}
 
-    public Forecast() {}
 
-    public Forecast(Double maxTemperature, Double minTemperature, Double precipitation, Double humidity) {
+
+    public Forecast(Double maxTemperature, Double minTemperature, Double precipitation, Double humidity, String name) {
         this.maxTemperature = maxTemperature;
         this.minTemperature = minTemperature;
         this.precipitation = precipitation;
         this.humidity = humidity;
         this.name = name;
     }
+
+
 
     public Double getMaxTemperature() {
         return maxTemperature;

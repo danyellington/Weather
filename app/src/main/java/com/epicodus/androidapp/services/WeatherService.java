@@ -35,7 +35,7 @@ public class WeatherService {
 
     }
 
-    public Forecast processResult(Response response) {
+    public Forecast processResults(Response response) {
         Forecast forecast;
         try {
             String jsonData = response.body().string();
@@ -44,9 +44,10 @@ public class WeatherService {
             Double maxTemperature = forecastJSON.getDouble("maxtemp_f");
             Double minTemperature = forecastJSON.getDouble("mintemp_f");
             Double humidity = forecastJSON.getDouble("humidity");
+            Double precipitation = forecastJSON.getDouble("humidity");
             String name = forecastJSON.getString("text");
 
-            forecast = new Forecast(maxTemperature, minTemperature, humidity, name);
+            forecast = new Forecast(maxTemperature, minTemperature, humidity, precipitation, name);
             return forecast;
         } catch (IOException e) {
             e.printStackTrace();

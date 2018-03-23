@@ -12,7 +12,8 @@ import android.widget.TextView;
 
 import com.epicodus.androidapp.R;
 import com.epicodus.androidapp.models.Forecast;
-import com.epicodus.androidapp.ui.LocalDetailActivity;
+import com.epicodus.androidapp.ui.LocalActivity;
+import com.epicodus.androidapp.ui.LocalActivity;
 
 import org.parceler.Parcels;
 
@@ -76,13 +77,11 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
 
             }
 
-
-
             @Override
             public void onClick(View v) {
                 Log.d("click listener", "working!");
                 int itemPosition = getLayoutPosition();
-                Intent intent = new Intent(mContext, LocalDetailActivity.class);
+                Intent intent = new Intent(mContext, LocalActivity.class);
                 intent.putExtra("position", itemPosition + "");
                 intent.putExtra("location", Parcels.wrap(mForecasts));
                 mContext.startActivity(intent);
