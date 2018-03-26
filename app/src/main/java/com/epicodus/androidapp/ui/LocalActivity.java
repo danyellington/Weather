@@ -51,7 +51,7 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
-
+        mRadarButton.setOnClickListener(this);
         getForecast(location);
 
     }

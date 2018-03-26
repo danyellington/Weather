@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -38,8 +39,8 @@ public class WeatherService {
 
     }
 
-    public Forecast processResults(Response response) {
-        Forecast forecast;
+    public ArrayList<Forecast> processResults(Response response) {
+        ArrayList<Forecast> forecasts = new ArrayList<>();
         try {
             String jsonData = response.body().string();
             JSONObject weatherJSON = new JSONObject(jsonData);
@@ -47,8 +48,9 @@ public class WeatherService {
             String temperature = forecastJSON.getString("temp_f");
             String humidity = forecastJSON.getString("humidity");
             String precipitation = forecastJSON.getString("precip_in");
-            forecast = new Forecast(temperature, humidity, precipitation);
-            return forecast;
+            Forecast forecast = new Forecast(temperature, humidity, precipitation);
+            forecasts.add(forecast);
+            return forecasts;
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
