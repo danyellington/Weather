@@ -1,6 +1,7 @@
 package com.epicodus.androidapp.ui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,16 +29,13 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class LocalActivity extends AppCompatActivity implements View.OnClickListener{
+public class LocalActivity extends AppCompatActivity{
     public static final String TAG = LocalActivity.class.getSimpleName();
     @BindView(R.id.locationTextView)
     TextView mLocationTextView;
-    @BindView(R.id.textView4)
-    TextView mTextView4;
-    @BindView(R.id.listView)
-    ListView mListView;
-    @BindView(R.id.radarButton)
-    Button mRadarButton;
+
+    @BindView(R.id.goToRadarButton)
+    ImageView mGoToRadarButton;
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
     private LocalAdapter mAdapter;
@@ -51,16 +50,25 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
-        mRadarButton.setOnClickListener(this);
         getForecast(location);
 
-    }
-    public void onClick(View view) {
-        Intent intent = new Intent(LocalActivity.this, RadarActivity.class);
-        startActivity(intent);
 
-    }
+        ImageView Button = (ImageView) findViewById(R.id.goToRadarButton);
+        Button.setOnClickListener(new View.OnClickListener() {
 
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://radar.weather.gov/ridge/radar_lite.php?rid=RTX&product=n0r&loop=yes"));
+                startActivity(intent);
+            }
+
+
+        });
+    }
     private void getForecast(String location) {
         final WeatherService weatherService = new WeatherService();
 
@@ -108,6 +116,7 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
             }
         });
     }
+
 
     }
 

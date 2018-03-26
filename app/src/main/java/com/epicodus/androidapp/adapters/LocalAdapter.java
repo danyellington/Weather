@@ -53,7 +53,6 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
             @BindView(R.id.name)
             TextView mName;
             @BindView(R.id.max) TextView mMax;
-            @BindView(R.id.min) TextView mMin;
             @BindView(R.id.humidity) TextView mHumidity;
             @BindView(R.id.precipitation) TextView mPrecipitation;
 
@@ -68,16 +67,15 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
             }
 
             public void bindForecast(Forecast forecast) {
-                mMax.setText(forecast.getTemperature());
-                mMin.setText(forecast.getPrecipitation());
-                mHumidity.setText(forecast.getHumidity());
+                mMax.setText("Temp(F): " + forecast.getTemperature());
+                mHumidity.setText("Humidity(%): " + forecast.getHumidity());
+                mPrecipitation.setText("Precipitation(in.): " + forecast.getPrecipitation());
 
 
             }
 
             @Override
             public void onClick(View v) {
-                Log.d("click listener", "working!");
                 int itemPosition = getLayoutPosition();
                 Intent intent = new Intent(mContext, LocalActivity.class);
                 intent.putExtra("position", itemPosition + "");

@@ -10,14 +10,16 @@ import java.util.Collection;
 
 public class Forecast extends ArrayList<Forecast> {
     String temperature;
-    String precipitation;
     String humidity;
+    String precipitation;
 
-    public Forecast(String temperature, String precipitation, String humidity) {
+
+    public Forecast(String temperature, String humidity, String precipitation) {
 
         this.temperature = temperature;
-        this.precipitation = precipitation;
         this.humidity = humidity;
+        this.precipitation = precipitation;
+
     }
 
     public String getTemperature() {
@@ -28,19 +30,19 @@ public class Forecast extends ArrayList<Forecast> {
         this.temperature = temperature;
     }
 
-    public String getPrecipitation() {
-        return precipitation;
-    }
-
-    public void setPrecipitation(String precipitation) {
-        this.precipitation = precipitation;
-    }
-
     public String getHumidity() {
         return humidity;
     }
 
     public void setHumidity(String humidity) {
         this.humidity = humidity;
+    }
+
+    public String getPrecipitation() {
+        return precipitation;
+    }
+
+    public void setPrecipitation(String precipitation) {
+        this.precipitation = precipitation;
     }
 }
