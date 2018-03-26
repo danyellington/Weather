@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -50,10 +52,16 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
 
-        getRestaurants(location);
+        getForecast(location);
+
+    }
+    public void onClick(View view) {
+        Intent intent = new Intent(LocalActivity.this, RadarActivity.class);
+        startActivity(intent);
+
     }
 
-    private void getRestaurants(String location) {
+    private void getForecast(String location) {
         final WeatherService weatherService = new WeatherService();
 
         weatherService.findForecast(location, new Callback() {
@@ -66,7 +74,6 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onResponse(Call call, Response response) {
                 mForecasts = weatherService.processResults(response);
-
                 LocalActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
@@ -78,14 +85,29 @@ public class LocalActivity extends AppCompatActivity implements View.OnClickList
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
                     }
+
+//@Override
+//public void run() {
+//    String[] restaurantNames = new String[mForecasts.size()];
+//    for (int i = 0; i < restaurantNames.length; i++) {
+//        restaurantNames[i] = mForecasts.get(i).getTemperature();
+//    }
+//    ArrayAdapter adapter = new ArrayAdapter(LocalActivity.this,
+//            android.R.layout.simple_list_item_1, restaurantNames);
+//    mListView.setAdapter(adapter);
+//
+//    for (Forecast forecast : mForecasts) {
+//
+//        Log.d(TAG, "Temp: " + forecast.getTemperature());
+//        Log.d(TAG, "Humidity: " + forecast.getHumidity());
+//        Log.d(TAG, "Precip: " + forecast.getPrecipitation());
+//
+//    }
+//}
                 });
             }
         });
     }
 
-    public void onClick(View view) {
-        Intent intent = new Intent(LocalActivity.this, RadarActivity.class);
-        startActivity(intent);
-
-    }}
+    }
 

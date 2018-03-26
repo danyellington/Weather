@@ -1,70 +1,46 @@
 package com.epicodus.androidapp.models;
 
+import android.support.annotation.NonNull;
+
 import org.parceler.Parcel;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 
 public class Forecast extends ArrayList<Forecast> {
-    Double maxTemperature;
-    Double minTemperature;
-    Double precipitation;
-    Double humidity;
-    String name;
+    String temperature;
+    String precipitation;
+    String humidity;
 
+    public Forecast(String temperature, String precipitation, String humidity) {
 
-//    public Forecast() {}
-
-
-
-    public Forecast(Double maxTemperature, Double minTemperature, Double precipitation, Double humidity, String name) {
-        this.maxTemperature = maxTemperature;
-        this.minTemperature = minTemperature;
+        this.temperature = temperature;
         this.precipitation = precipitation;
         this.humidity = humidity;
-        this.name = name;
     }
 
-
-
-    public Double getMaxTemperature() {
-        return maxTemperature;
+    public String getTemperature() {
+        return temperature;
     }
 
-    public void setMaxTemperature(Double maxTemperature) {
-        this.maxTemperature = maxTemperature;
+    public void setTemperature(String temperature) {
+        this.temperature = temperature;
     }
 
-    public Double getMinTemperature() {
-        return minTemperature;
-    }
-
-    public void setMinTemperature(Double minTemperature) {
-        this.minTemperature = minTemperature;
-    }
-
-    public Double getPrecipitation() {
+    public String getPrecipitation() {
         return precipitation;
     }
 
-    public void setPrecipitation(Double precipitation) {
+    public void setPrecipitation(String precipitation) {
         this.precipitation = precipitation;
     }
 
-    public Double getHumidity() {
+    public String getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(Double humidity) {
+    public void setHumidity(String humidity) {
         this.humidity = humidity;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
-

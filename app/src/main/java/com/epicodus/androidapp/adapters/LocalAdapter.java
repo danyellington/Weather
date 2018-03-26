@@ -68,10 +68,7 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
             }
 
             public void bindForecast(Forecast forecast) {
-
-                mName.setText(forecast.getName());
-                mMax.setText(forecast.getMaxTemperature());
-                mMax.setText(forecast.getMinTemperature());
+                mMax.setText(forecast.getTemperature());
                 mMin.setText(forecast.getPrecipitation());
                 mHumidity.setText(forecast.getHumidity());
 

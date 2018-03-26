@@ -1,4 +1,6 @@
 package com.epicodus.androidapp.services;
+import android.util.Log;
+
 import com.epicodus.androidapp.Constants;
 import com.epicodus.androidapp.models.Forecast;
 
@@ -22,12 +24,13 @@ public class WeatherService {
                 .build();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.WEATHER_KEY_BASE_URL).newBuilder();
+        urlBuilder.addQueryParameter("key", Constants.WEATHER_KEY);
         urlBuilder.addQueryParameter(Constants.YOUR_QUERY_PARAMETER, location);
         String url = urlBuilder.build().toString();
 
+
         Request request= new Request.Builder()
                 .url(url)
-                .header("Authorization", Constants.WEATHER_KEY + "&q=")
                 .build();
 
         Call call = client.newCall(request);
@@ -40,14 +43,11 @@ public class WeatherService {
         try {
             String jsonData = response.body().string();
             JSONObject weatherJSON = new JSONObject(jsonData);
-            JSONObject forecastJSON = weatherJSON.getJSONObject("location");
-            Double maxTemperature = forecastJSON.getDouble("maxtemp_f");
-            Double minTemperature = forecastJSON.getDouble("mintemp_f");
-            Double humidity = forecastJSON.getDouble("humidity");
-            Double precipitation = forecastJSON.getDouble("humidity");
-            String name = forecastJSON.getString("text");
-
-            forecast = new Forecast(maxTemperature, minTemperature, humidity, precipitation, name);
+            JSONObject forecastJSON = weatherJSON.getJSONObject("current");
+            String temperature = forecastJSON.getString("temp_f");
+            String humidity = forecastJSON.getString("humidity");
+            String precipitation = forecastJSON.getString("precip_in");
+            forecast = new Forecast(temperature, humidity, precipitation);
             return forecast;
         } catch (IOException e) {
             e.printStackTrace();
