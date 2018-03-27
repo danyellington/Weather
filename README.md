@@ -7,7 +7,12 @@ This application can display the weather and forecast in a location provided by 
 
 * Clone github repository https://github.com/danyellington/Weather.git
 * Open Android Studio v.3.0.1
-* Open existing project 'Weather'
+* Open  project _Weather_
+* Open browser and navigate to _apixu.com_
+* Sign up and follow prompts
+* Verify email, log in, and API key will be provided
+* In Android Studio, create a new resource bundle at the top level of the project directory called _gradle.properties_
+* Add API key to file as _WeatherKey = "API KEY HERE"_
 * Run emulator
 
 ### Specifications

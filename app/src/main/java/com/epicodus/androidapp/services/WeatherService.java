@@ -20,24 +20,26 @@ import okhttp3.Response;
 
 
 public class WeatherService {
-    public static void findForecast(String location, Callback callback) {
-        OkHttpClient client = new OkHttpClient.Builder()
-                .build();
+        public static void findForecast(String location, Callback callback) {
+            OkHttpClient client = new OkHttpClient.Builder()
+                    .build();
 
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.WEATHER_KEY_BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter("key", Constants.WEATHER_KEY);
-        urlBuilder.addQueryParameter(Constants.YOUR_QUERY_PARAMETER, location);
-        String url = urlBuilder.build().toString();
+            HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.WEATHER_KEY_BASE_URL).newBuilder();
+            urlBuilder.addQueryParameter("key", Constants.WEATHER_KEY);
+            urlBuilder.addQueryParameter(Constants.YOUR_QUERY_PARAMETER, location);
+            urlBuilder.addQueryParameter("days", Constants.WEATHER_FORECAST);
+            String url = urlBuilder.build().toString();
 
 
-        Request request= new Request.Builder()
-                .url(url)
-                .build();
+            Request request= new Request.Builder()
+                    .url(url)
+                    .build();
 
-        Call call = client.newCall(request);
-        call.enqueue(callback);
+            Call call = client.newCall(request);
+            call.enqueue(callback);
 
-    }
+        }
+
 
     public ArrayList<Forecast> processResults(Response response) {
         ArrayList<Forecast> forecasts = new ArrayList<>();
@@ -47,7 +49,7 @@ public class WeatherService {
             JSONObject forecastJSON = weatherJSON.getJSONObject("current");
             String temperature = forecastJSON.getString("temp_f");
             String humidity = forecastJSON.getString("humidity");
-            String precipitation = forecastJSON.getString("precip_in");
+            String precipitation = forecastJSON.getString("precip_mm");
             Forecast forecast = new Forecast(temperature, humidity, precipitation);
             forecasts.add(forecast);
             return forecasts;
@@ -58,4 +60,5 @@ public class WeatherService {
         }
         return null;
     }
+
 }
