@@ -7,18 +7,21 @@ import org.parceler.Parcel;
 import java.util.ArrayList;
 import java.util.Collection;
 
-
+@Parcel
 public class Forecast extends ArrayList<Forecast> {
     String temperature;
     String humidity;
     String precipitation;
+    String image;
 
+    public Forecast() {}
 
-    public Forecast(String temperature, String humidity, String precipitation) {
+    public Forecast(String temperature, String humidity, String precipitation, String image) {
 
         this.temperature = temperature;
         this.humidity = humidity;
         this.precipitation = precipitation;
+        this.image = image;
 
     }
 
@@ -42,7 +45,10 @@ public class Forecast extends ArrayList<Forecast> {
         return precipitation;
     }
 
-    public void setPrecipitation(String precipitation) {
-        this.precipitation = precipitation;
+    public String getImage() {return image;}
+
+    public void setImage(String image) {this.image = image;}
+
+
+
     }
-}

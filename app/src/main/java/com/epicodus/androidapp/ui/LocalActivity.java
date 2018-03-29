@@ -62,7 +62,7 @@ public class LocalActivity extends AppCompatActivity{
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("https://radar.weather.gov/ridge/radar_lite.php?rid=RTX&product=n0r&loop=yes"));
+                intent.setData(Uri.parse("https://radar.weather.gov"));
                 startActivity(intent);
             }
 
@@ -116,7 +116,5 @@ public class LocalActivity extends AppCompatActivity{
             }
         });
     }
-
-
-    }
+}
 

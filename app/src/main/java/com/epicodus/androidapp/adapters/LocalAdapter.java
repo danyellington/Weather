@@ -8,12 +8,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.epicodus.androidapp.R;
 import com.epicodus.androidapp.models.Forecast;
 import com.epicodus.androidapp.ui.LocalActivity;
 import com.epicodus.androidapp.ui.LocalActivity;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -50,8 +52,8 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
 
         public class ForecastViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-            @BindView(R.id.name)
-            TextView mName;
+            @BindView(R.id.image)
+            ImageView mImageView;
             @BindView(R.id.max) TextView mMax;
             @BindView(R.id.humidity) TextView mHumidity;
             @BindView(R.id.precipitation) TextView mPrecipitation;
@@ -67,6 +69,7 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
             }
 
             public void bindForecast(Forecast forecast) {
+                Picasso.with(mContext).load(forecast.getImage()).into(mImageView);
                 mMax.setText("Temperature: " + forecast.getTemperature() + " F");
                 mHumidity.setText("Humidity: " + forecast.getHumidity() + "%");
                 mPrecipitation.setText("Precipitation: " + forecast.getPrecipitation() + " mm");

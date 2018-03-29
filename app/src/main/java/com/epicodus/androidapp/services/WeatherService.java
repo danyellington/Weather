@@ -50,7 +50,9 @@ public class WeatherService {
             String temperature = forecastJSON.getString("temp_f");
             String humidity = forecastJSON.getString("humidity");
             String precipitation = forecastJSON.getString("precip_mm");
-            Forecast forecast = new Forecast(temperature, humidity, precipitation);
+            String image = forecastJSON.getJSONObject("condition").getString("icon");
+            Log.d("image" , image);
+            Forecast forecast = new Forecast(temperature, humidity, precipitation, image);
             forecasts.add(forecast);
             return forecasts;
         } catch (IOException e) {

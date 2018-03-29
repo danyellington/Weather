@@ -19,9 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.LocalActivity" />
-        <activity android:name=".ui.GlobalActivity" />
-        <activity android:name=".ui.RadarActivity" />
         <activity android:name=".ui.DailyActivity" />
+        <activity android:name=".ui.SavedLocationsActivity"></activity>
     </application>
 
 </manifest>
