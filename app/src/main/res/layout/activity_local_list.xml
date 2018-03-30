@@ -57,15 +57,15 @@
             android:textSize="20sp"
             android:textStyle="italic" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Save This Location"
-            android:id="@+id/saveLocationButton"
-            android:layout_alignParentBottom="true"
-            android:background="@color/colorAccent"
-            android:textColor="@color/colorTextIcons"
-            android:textSize="15sp" />
+        <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Save This Location"-->
+            <!--android:id="@+id/saveLocationButton"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:background="@color/LightSkyBlue"-->
+            <!--android:textColor="@color/colorTextIcons"-->
+            <!--android:textSize="15sp" />-->
 
     </LinearLayout>
 </LinearLayout>

@@ -30,16 +30,10 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.locationButton)
     Button mLocationButton;
     @BindView(R.id.savedLocationsButton) Button mSavedLocationsButton;
-    @BindView(R.id.globalButton)
-    ImageView mGlobalButton;
+//    @BindView(R.id.globalButton)
+//    ImageView mGlobalButton;
     @BindView(R.id.locationEditText)
     EditText mLocationEditText;
-    @BindView(R.id.textView)
-    TextView mTextView;
-    @BindView(R.id.textView2)
-    TextView mTextView2;
-    @BindView(R.id.textView3)
-    TextView mTextView3;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -56,11 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         Typeface rubikFont = Typeface.createFromAsset(getAssets(), "fonts/rubik.ttf");
-        mTextView.setTypeface(rubikFont);
-        mTextView2.setTypeface(rubikFont);
-        mTextView3.setTypeface(rubikFont);
-
-
+        
         mAuth = FirebaseAuth.getInstance();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
