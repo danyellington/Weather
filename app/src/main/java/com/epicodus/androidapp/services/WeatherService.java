@@ -44,6 +44,12 @@ public class WeatherService {
     public ArrayList<Forecast> processResults(Response response) {
         ArrayList<Forecast> forecasts = new ArrayList<>();
         try {
+//            String jsonCityData = response.body().string();
+//            JSONObject weatherCityJSON = new JSONObject(jsonCityData);
+//            JSONObject forecastCityJSON = weatherCityJSON.getJSONObject("location");
+//            String name = forecastDayJSON.getString("name");
+//            Log.d("city", name);
+
             String jsonData = response.body().string();
             JSONObject weatherJSON = new JSONObject(jsonData);
             JSONObject forecastJSON = weatherJSON.getJSONObject("current");
