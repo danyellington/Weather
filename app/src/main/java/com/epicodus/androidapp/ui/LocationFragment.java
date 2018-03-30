@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.epicodus.androidapp.Constants;
 import com.epicodus.androidapp.R;
 import com.epicodus.androidapp.models.Forecast;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -76,14 +78,24 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
 
         if (v == mSavedLocationsButton) {
-            DatabaseReference forecastRef = FirebaseDatabase
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
+            DatabaseReference restaurantRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_LOCATION);
-            forecastRef.push().setValue(mForecast);
+                    .getReference(Constants.FIREBASE_CHILD_LOCATION)
+                    .child(uid);
+
+            DatabaseReference pushRef = restaurantRef.push();
+            String pushId = pushRef.getKey();
+            mForecast.setPushId(pushId);
+            pushRef.setValue(mForecast);
+
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
-    }
 
+    }
 }
+
 
 

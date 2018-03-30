@@ -13,6 +13,7 @@ public class Forecast extends ArrayList<Forecast> {
     String humidity;
     String precipitation;
     String image;
+    String pushId;
 
     public Forecast() {}
 
@@ -49,6 +50,13 @@ public class Forecast extends ArrayList<Forecast> {
 
     public void setImage(String image) {this.image = image;}
 
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
 
 
     }
