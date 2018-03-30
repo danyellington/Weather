@@ -68,6 +68,7 @@ public class LocalActivity extends AppCompatActivity{
 
 
         });
+        getForecast(location);
     }
     private void getForecast(String location) {
         final WeatherService weatherService = new WeatherService();
@@ -94,24 +95,6 @@ public class LocalActivity extends AppCompatActivity{
                         mRecyclerView.setHasFixedSize(true);
                     }
 
-//@Override
-//public void run() {
-//    String[] restaurantNames = new String[mForecasts.size()];
-//    for (int i = 0; i < restaurantNames.length; i++) {
-//        restaurantNames[i] = mForecasts.get(i).getTemperature();
-//    }
-//    ArrayAdapter adapter = new ArrayAdapter(LocalActivity.this,
-//            android.R.layout.simple_list_item_1, restaurantNames);
-//    mListView.setAdapter(adapter);
-//
-//    for (Forecast forecast : mForecasts) {
-//
-//        Log.d(TAG, "Temp: " + forecast.getTemperature());
-//        Log.d(TAG, "Humidity: " + forecast.getHumidity());
-//        Log.d(TAG, "Precip: " + forecast.getPrecipitation());
-//
-//    }
-//}
                 });
             }
         });

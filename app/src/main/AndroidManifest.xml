@@ -12,15 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ui.LocalActivity" />
         <activity android:name=".ui.DailyActivity" />
-        <activity android:name=".ui.SavedLocationsActivity"></activity>
+        <activity android:name=".ui.SavedLocationsActivity" />
+        <activity android:name=".ui.LocalDetailActivity" />
+        <activity android:name=".ui.LoginActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+        <activity android:name=".ui.AccountCreateActivity"></activity>
     </application>
 
 </manifest>

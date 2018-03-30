@@ -17,7 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SavedLocationsActivity extends AppCompatActivity {
-    private DatabaseReference mRestaurantReference;
+    private DatabaseReference mForecastReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
 
     @BindView(R.id.recyclerView)
@@ -30,14 +30,14 @@ public class SavedLocationsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_local);
         ButterKnife.bind(this);
 
-        mRestaurantReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_LOCATION);
+        mForecastReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_LOCATION);
         setUpFirebaseAdapter();
     }
 
     private void setUpFirebaseAdapter() {
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Forecast, FirebaseViewHolder>
                 (Forecast.class, R.layout.activity_local_list, FirebaseViewHolder.class,
-                        mRestaurantReference) {
+                        mForecastReference) {
 
             @Override
             protected void populateViewHolder(FirebaseViewHolder viewHolder,

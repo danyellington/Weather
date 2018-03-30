@@ -21,6 +21,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+
+
     <ImageView
         android:id="@+id/goToRadarButton"
         android:layout_width="85dp"

@@ -60,7 +60,7 @@ public class WeatherService {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return null;
+        return forecasts;
     }
 
 }

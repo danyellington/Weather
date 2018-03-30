@@ -1,8 +1,9 @@
 package com.epicodus.androidapp.ui;
 
 
-import android.app.Fragment;
+
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,7 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
     TextView mHumidity;
     @BindView(R.id.precipitation)
     TextView mPrecipitation;
-    @BindView(R.id.savedLocationsButton)
+    @BindView(R.id.saveLocationButton)
     TextView mSavedLocationsButton;
 
     private Forecast mForecast;
