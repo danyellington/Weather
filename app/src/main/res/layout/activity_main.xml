@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
 
@@ -7,87 +8,68 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:scaleType="centerCrop"
         android:src="@drawable/sky" />
 
-    <ImageView
+    <!--<ImageView-->
 
-        android:id="@+id/globalButton"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
+        <!--android:id="@+id/globalButton"-->
+        <!--android:layout_width="85dp"-->
+        <!--android:layout_height="85dp"-->
 
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/globe"
-        android:text="Button" />
+        <!--android:layout_below="@+id/textView"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:src="@drawable/globe"-->
+        <!--android:text="Button" />-->
 
 
     <EditText
+        android:id="@+id/locationEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/locationEditText"
-        android:background="@color/colorTextIcons"
         android:layout_above="@+id/locationButton"
-        android:layout_marginBottom="10dp"
-        android:padding="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="108dp"
+        android:background="@color/colorTextIcons"
         android:hint="Enter City or Zip Code"
-        android:layout_centerHorizontal="true" />
+        android:padding="5dp" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Find Local Weather"
+        android:text="Search"
         android:id="@+id/locationButton"
-        android:background="@color/colorAccent"
+        android:background="@color/LightSkyBlue"
         android:textColor="@color/colorTextIcons"
         android:visibility="visible"
         android:layout_above="@+id/savedLocationsButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="10dp"
+        android:alpha="0.65"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Saved Locations"
+        android:text="My Saved Locations"
         android:id="@+id/savedLocationsButton"
-        android:background="@color/colorAccent"
+        android:background="@color/LightSkyBlue"
         android:textColor="@color/colorTextIcons"
         android:visibility="visible"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:alpha="0.65"/>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="@android:dimen/app_icon_size"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="37dp"
-        android:text="View Weather from Around the World"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textColor="@color/colorTextIcons"/>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/globalButton"
-        android:layout_centerHorizontal="true"
-        android:text="Click Here"
-        android:textColor="@color/colorTextIcons" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/locationEditText"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/colorTextIcons"
-        android:text="Or View Your Local Forecast" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="17dp"
+        app:srcCompat="@drawable/map" />
 
 </RelativeLayout>

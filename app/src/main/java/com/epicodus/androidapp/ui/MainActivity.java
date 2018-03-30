@@ -97,20 +97,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ImageView Button = (ImageView) findViewById(R.id.globalButton);
-        Button.setOnClickListener(new View.OnClickListener() {
-
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("https://www.accuweather.com/en/world-weather"));
-                startActivity(intent);
-            }
-
-        });
+//        ImageView Button = (ImageView) findViewById(R.id.globalButton);
+//        Button.setOnClickListener(new View.OnClickListener() {
+//
+//
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent();
+//                intent.setAction(Intent.ACTION_VIEW);
+//                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+//                intent.setData(Uri.parse("https://www.accuweather.com/en/world-weather"));
+//                startActivity(intent);
+//            }
+//
+//        });
 
 
     }
