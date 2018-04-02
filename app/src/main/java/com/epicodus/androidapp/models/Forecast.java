@@ -13,17 +13,20 @@ public class Forecast extends ArrayList<Forecast> {
     String humidity;
     String precipitation;
     String image;
+    String date;
+    String city;
     String pushId;
 
     public Forecast() {}
 
-    public Forecast(String temperature, String humidity, String precipitation, String image) {
-
+    public Forecast(String temperature, String humidity, String precipitation, String image, String date, String city) {
         this.temperature = temperature;
         this.humidity = humidity;
         this.precipitation = precipitation;
         this.image = image;
-
+        this.date = date;
+        this.city = city;
+        this.pushId = pushId;
     }
 
     public String getTemperature() {
@@ -46,9 +49,33 @@ public class Forecast extends ArrayList<Forecast> {
         return precipitation;
     }
 
-    public String getImage() {return image;}
+    public void setPrecipitation(String precipitation) {
+        this.precipitation = precipitation;
+    }
 
-    public void setImage(String image) {this.image = image;}
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 
     public String getPushId() {
         return pushId;
@@ -57,6 +84,4 @@ public class Forecast extends ArrayList<Forecast> {
     public void setPushId(String pushId) {
         this.pushId = pushId;
     }
-
-
-    }
+}

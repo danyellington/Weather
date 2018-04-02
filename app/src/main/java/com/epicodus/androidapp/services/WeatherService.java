@@ -29,6 +29,7 @@ public class WeatherService {
             urlBuilder.addQueryParameter(Constants.YOUR_QUERY_PARAMETER, location);
             urlBuilder.addQueryParameter("days", Constants.WEATHER_FORECAST);
             String url = urlBuilder.build().toString();
+            Log.d("url",url);
 
 
             Request request= new Request.Builder()
@@ -44,23 +45,24 @@ public class WeatherService {
     public ArrayList<Forecast> processResults(Response response) {
         ArrayList<Forecast> forecasts = new ArrayList<>();
         try {
-//            String jsonCityData = response.body().string();
-//            JSONObject weatherCityJSON = new JSONObject(jsonCityData);
-//            JSONObject forecastCityJSON = weatherCityJSON.getJSONObject("location");
-//            String name = forecastDayJSON.getString("name");
-//            Log.d("city", name);
-
             String jsonData = response.body().string();
             JSONObject weatherJSON = new JSONObject(jsonData);
-            JSONObject forecastJSON = weatherJSON.getJSONObject("current");
-            String temperature = forecastJSON.getString("temp_f");
-            String humidity = forecastJSON.getString("humidity");
-            String precipitation = forecastJSON.getString("precip_mm");
-            String image = forecastJSON.getJSONObject("condition").getString("icon");
-            Log.d("image" , image);
-            Forecast forecast = new Forecast(temperature, humidity, precipitation, image);
-            forecasts.add(forecast);
-            return forecasts;
+            JSONObject locationJSON = weatherJSON.getJSONObject("location");
+            String city = locationJSON.getString("name");
+            JSONObject forecastJSON = weatherJSON.getJSONObject("forecast");
+            JSONArray forecastDayJSON = forecastJSON.getJSONArray("forecastday");
+            for (int i = 0; i < forecastDayJSON.length(); i++) {
+                JSONObject dateJSON = forecastDayJSON.getJSONObject(i);
+                String date = dateJSON.getString("date");
+                JSONObject dayJSON = dateJSON.getJSONObject("day");
+                String temperature = dayJSON.getString("maxtemp_f");
+                String humidity = dayJSON.getString("avghumidity");
+                String precipitation = dayJSON.getString("totalprecip_mm");
+                String image = dayJSON.getJSONObject("condition").getString("icon");
+                Forecast forecast = new Forecast(temperature, humidity, precipitation, image, city, date);
+                forecasts.add(forecast);
+                Log.d("Array", forecasts.toString());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
@@ -68,5 +70,6 @@ public class WeatherService {
         }
         return forecasts;
     }
+
 
 }

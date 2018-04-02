@@ -54,6 +54,10 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
 
             @BindView(R.id.image)
             ImageView mImageView;
+            @BindView(R.id.name)
+            TextView mName;
+            @BindView(R.id.date)
+            TextView mDate;
             @BindView(R.id.max) TextView mMax;
             @BindView(R.id.humidity) TextView mHumidity;
             @BindView(R.id.precipitation) TextView mPrecipitation;
@@ -73,6 +77,9 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
                 mMax.setText("Temperature: " + forecast.getTemperature() + " F");
                 mHumidity.setText("Humidity: " + forecast.getHumidity() + "%");
                 mPrecipitation.setText("Precipitation: " + forecast.getPrecipitation() + " mm");
+                mName.setText(forecast.getCity());
+                mDate.setText(forecast.getDate());
+
 
 
             }

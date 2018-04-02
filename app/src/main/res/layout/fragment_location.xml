@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context="com.epicodus.androidapp.ui.LocationFragment">
-    >
+
 
     <ImageView
         android:layout_width="130dp"
@@ -26,7 +26,14 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
             android:textSize="20dp"
+            android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
         <TextView
@@ -59,6 +66,7 @@
             android:text="Precipitation: "
             android:textSize="20sp"
             android:textStyle="italic" />
+
 
         <Button
             android:layout_width="match_parent"
