@@ -8,28 +8,26 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Parcel
-public class Forecast extends ArrayList<Forecast> {
-    String location;
+public class Forecast {
+
     String temperature;
     String humidity;
     String precipitation;
-    String image;
     String date;
     String city;
     String pushId;
 
-    public Forecast() {}
+    public Forecast() {
+    }
 
-    public Forecast(String temperature, String humidity, String precipitation, String image, String date, String city) {
+    public Forecast(String temperature, String humidity, String precipitation, String date, String city) {
         this.temperature = temperature;
         this.humidity = humidity;
         this.precipitation = precipitation;
-        this.image = image;
         this.date = date;
         this.city = city;
         this.pushId = pushId;
     }
-
 
     public String getTemperature() {
         return temperature;
@@ -53,14 +51,6 @@ public class Forecast extends ArrayList<Forecast> {
 
     public void setPrecipitation(String precipitation) {
         this.precipitation = precipitation;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     public String getDate() {

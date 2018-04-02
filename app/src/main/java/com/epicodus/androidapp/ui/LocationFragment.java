@@ -32,7 +32,7 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
     TextView mTemp;
     @BindView(R.id.humidity)
     TextView mHumidity;
-    @BindView(R.id.precipitation)
+    @BindView(R.id.avgPrecipitation)
     TextView mPrecipitation;
     @BindView(R.id.saveLocationButton)
     TextView mSavedLocationsButton;
@@ -51,7 +51,7 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mForecast = Parcels.unwrap(getArguments().getParcelable("forecast"));
+        mForecast = Parcels.unwrap(getArguments().getParcelable("location"));
     }
 
     @Override
@@ -59,11 +59,11 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_location, container, false);
         ButterKnife.bind(this, view);
 
-        Picasso.with(view.getContext())
-                .load(mForecast.getImage())
-                //.resize(MAX_WIDTH, MAX_HEIGHT)
-                .centerCrop()
-                .into(mImage);
+//        Picasso.with(view.getContext())
+//                .load(mForecast.getImage())
+//                //.resize(MAX_WIDTH, MAX_HEIGHT)
+//                .centerCrop()
+//                .into(mImage);
 
         mTemp.setText(mForecast.getTemperature());
         mHumidity.setText(mForecast.getHumidity());

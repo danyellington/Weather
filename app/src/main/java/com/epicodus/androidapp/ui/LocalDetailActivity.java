@@ -1,12 +1,10 @@
 package com.epicodus.androidapp.ui;
-import android.content.Context;
 import android.os.Bundle;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.epicodus.androidapp.R;
-import com.epicodus.androidapp.adapters.LocalAdapter;
 import com.epicodus.androidapp.adapters.LocalPagerAdapter;
 import com.epicodus.androidapp.models.Forecast;
 

@@ -13,8 +13,7 @@ import android.widget.TextView;
 
 import com.epicodus.androidapp.R;
 import com.epicodus.androidapp.models.Forecast;
-import com.epicodus.androidapp.ui.LocalActivity;
-import com.epicodus.androidapp.ui.LocalActivity;
+import com.epicodus.androidapp.ui.LocalDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -73,7 +72,7 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
             }
 
             public void bindForecast(Forecast forecast) {
-                Picasso.with(mContext).load(forecast.getImage()).into(mImageView);
+               // Picasso.with(mContext).load(forecast.getImage()).into(mImageView);
                 mMax.setText("Temperature: " + forecast.getTemperature() + " F");
                 mHumidity.setText("Humidity: " + forecast.getHumidity() + "%");
                 mPrecipitation.setText("Precipitation: " + forecast.getPrecipitation() + " mm");
@@ -85,11 +84,12 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
             }
 
             @Override
+
             public void onClick(View v) {
                 int itemPosition = getLayoutPosition();
-                Intent intent = new Intent(mContext, LocalActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("location", Parcels.wrap(mForecasts));
+                Intent intent = new Intent(mContext, LocalDetailActivity.class);
+                intent.putExtra("position", itemPosition);
+                intent.putExtra("forecasts", Parcels.wrap(mForecasts));
                 mContext.startActivity(intent);
             }
         }

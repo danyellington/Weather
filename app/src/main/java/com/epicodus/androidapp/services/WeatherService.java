@@ -1,4 +1,5 @@
 package com.epicodus.androidapp.services;
+
 import android.util.Log;
 
 import com.epicodus.androidapp.Constants;
@@ -59,9 +60,17 @@ public class WeatherService {
                 String humidity = dayJSON.getString("avghumidity");
                 String precipitation = dayJSON.getString("totalprecip_mm");
                 String image = dayJSON.getJSONObject("condition").getString("icon");
-                Forecast forecast = new Forecast(temperature, humidity, precipitation, image, city, date);
+                Log.d("city", city);
+                Log.d("date", date);
+                Log.d("temp",temperature);
+                Log.d("humidity", humidity);
+                Log.d("pre",precipitation);
+                Log.d("image",image);
+
+                Forecast forecast = new Forecast(temperature, humidity, precipitation, city, date);
                 forecasts.add(forecast);
-                Log.d("Array", forecasts.toString());
+                Log.d("Search", forecasts.toString());
+
             }
         } catch (IOException e) {
             e.printStackTrace();

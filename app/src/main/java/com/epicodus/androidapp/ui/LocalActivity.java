@@ -1,19 +1,11 @@
 package com.epicodus.androidapp.ui;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.epicodus.androidapp.R;
 import com.epicodus.androidapp.adapters.LocalAdapter;
@@ -28,6 +20,7 @@ import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+
 
 public class LocalActivity extends AppCompatActivity {
     public static final String TAG = LocalActivity.class.getSimpleName();
@@ -50,6 +43,7 @@ public class LocalActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
+        Log.d("wtf", location);
         getForecast(location);
 
 
@@ -68,7 +62,7 @@ public class LocalActivity extends AppCompatActivity {
 //
 //
 //        });
-        getForecast(location);
+
     }
 
     private void getForecast(String location) {
