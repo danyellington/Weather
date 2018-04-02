@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.epicodus.androidapp.models.Forecast;
 import com.epicodus.androidapp.ui.LocationFragment;
-//import com.epicodus.androidapp.ui.LocationFragment;
 
 import java.util.ArrayList;
 

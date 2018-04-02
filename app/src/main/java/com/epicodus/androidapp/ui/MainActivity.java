@@ -26,7 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    DatabaseReference mSearchedLocationReference;
+
     @BindView(R.id.locationButton)
     Button mLocationButton;
     @BindView(R.id.savedLocationsButton) Button mSavedLocationsButton;
@@ -34,16 +34,13 @@ public class MainActivity extends AppCompatActivity {
 //    ImageView mGlobalButton;
     @BindView(R.id.locationEditText)
     EditText mLocationEditText;
+
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        mSearchedLocationReference = FirebaseDatabase
-                .getInstance()
-                .getReference()
-                .child(Constants.FIREBASE_CHILD_SEARCHED_LOCATION);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
@@ -51,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
         Typeface rubikFont = Typeface.createFromAsset(getAssets(), "fonts/rubik.ttf");
         
+
+        //mSavedLocationsButton.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {

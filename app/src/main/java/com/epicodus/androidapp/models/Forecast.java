@@ -9,6 +9,7 @@ import java.util.Collection;
 
 @Parcel
 public class Forecast extends ArrayList<Forecast> {
+    String location;
     String temperature;
     String humidity;
     String precipitation;
@@ -28,6 +29,7 @@ public class Forecast extends ArrayList<Forecast> {
         this.city = city;
         this.pushId = pushId;
     }
+
 
     public String getTemperature() {
         return temperature;

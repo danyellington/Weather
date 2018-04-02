@@ -29,7 +29,6 @@ public class WeatherService {
             urlBuilder.addQueryParameter(Constants.YOUR_QUERY_PARAMETER, location);
             urlBuilder.addQueryParameter("days", Constants.WEATHER_FORECAST);
             String url = urlBuilder.build().toString();
-            Log.d("url",url);
 
 
             Request request= new Request.Builder()
@@ -44,6 +43,7 @@ public class WeatherService {
 
     public ArrayList<Forecast> processResults(Response response) {
         ArrayList<Forecast> forecasts = new ArrayList<>();
+
         try {
             String jsonData = response.body().string();
             JSONObject weatherJSON = new JSONObject(jsonData);

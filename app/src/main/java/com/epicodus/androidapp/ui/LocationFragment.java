@@ -51,7 +51,7 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mForecast = Parcels.unwrap(getArguments().getParcelable("location"));
+        mForecast = Parcels.unwrap(getArguments().getParcelable("forecast"));
     }
 
     @Override
