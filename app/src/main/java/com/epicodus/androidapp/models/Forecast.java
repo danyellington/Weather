@@ -11,8 +11,10 @@ import java.util.Collection;
 public class Forecast {
 
     String temperature;
+    String temperatureMin;
     String humidity;
     String precipitation;
+    String wind;
     String date;
     String city;
     String pushId;
@@ -20,10 +22,12 @@ public class Forecast {
     public Forecast() {
     }
 
-    public Forecast(String temperature, String humidity, String precipitation, String date, String city) {
+    public Forecast(String temperature, String temperatureMin, String humidity, String precipitation, String wind, String date, String city) {
         this.temperature = temperature;
+        this.temperatureMin = temperatureMin;
         this.humidity = humidity;
         this.precipitation = precipitation;
+        this.wind = wind;
         this.date = date;
         this.city = city;
         this.pushId = pushId;
@@ -36,6 +40,15 @@ public class Forecast {
     public void setTemperature(String temperature) {
         this.temperature = temperature;
     }
+
+    public String getTemperatureMin() {
+        return temperatureMin;
+    }
+
+    public void setTemperatureMin(String temperatureMin) {
+        this.temperatureMin = temperatureMin;
+    }
+
 
     public String getHumidity() {
         return humidity;
@@ -52,6 +65,10 @@ public class Forecast {
     public void setPrecipitation(String precipitation) {
         this.precipitation = precipitation;
     }
+
+    public String getWind() {return wind;}
+
+    public void setWind(String wind) {this.wind = wind;}
 
     public String getDate() {
         return date;

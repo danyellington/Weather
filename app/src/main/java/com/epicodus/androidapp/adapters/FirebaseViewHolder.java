@@ -41,7 +41,7 @@ public class FirebaseViewHolder extends RecyclerView.ViewHolder implements View.
         ImageView forecastImage = (ImageView) mView.findViewById(R.id.image);
         TextView temp = (TextView) mView.findViewById(R.id.max);
         TextView humidity = (TextView) mView.findViewById(R.id.humidity);
-        TextView precipitation = (TextView) mView.findViewById(R.id.precipitation);
+      //  TextView precipitation = (TextView) mView.findViewById(R.id.precipitation);
 
 //        Picasso.with(mContext)
 //                .load(forecast.getImage())
@@ -51,7 +51,7 @@ public class FirebaseViewHolder extends RecyclerView.ViewHolder implements View.
 
         temp.setText(forecast.getTemperature());
         humidity.setText(forecast.getHumidity());
-        precipitation.setText(forecast.getPrecipitation());
+       // precipitation.setText(forecast.getPrecipitation());
     }
 
     @Override

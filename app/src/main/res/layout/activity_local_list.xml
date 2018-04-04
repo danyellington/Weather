@@ -39,32 +39,20 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:text="Temp: "
+            android:text="high"
             android:textSize="20dp"
             android:textStyle="italic" />
 
 
         <TextView
-            android:id="@+id/humidity"
+            android:id="@+id/min"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:text="Humidity: "
+            android:text="low"
             android:textSize="20dp"
             android:textStyle="italic" />
-
-        <TextView
-            android:id="@+id/precipitation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:text="Precipitation: "
-            android:textSize="20sp"
-            android:textStyle="italic" />
-
-
 
 
     </LinearLayout>

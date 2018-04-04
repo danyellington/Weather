@@ -57,19 +57,16 @@ public class WeatherService {
                 String date = dateJSON.getString("date");
                 JSONObject dayJSON = dateJSON.getJSONObject("day");
                 String temperature = dayJSON.getString("maxtemp_f");
+                String temperatureMin = dayJSON.getString("mintemp_f");
                 String humidity = dayJSON.getString("avghumidity");
                 String precipitation = dayJSON.getString("totalprecip_mm");
+                String wind = dayJSON.getString("maxwind_mph");
                 String image = dayJSON.getJSONObject("condition").getString("icon");
-                Log.d("city", city);
-                Log.d("date", date);
-                Log.d("temp",temperature);
-                Log.d("humidity", humidity);
-                Log.d("pre",precipitation);
-                Log.d("image",image);
 
-                Forecast forecast = new Forecast(temperature, humidity, precipitation, city, date);
+
+                Forecast forecast = new Forecast(temperature, temperatureMin, humidity, precipitation, wind, city, date);
                 forecasts.add(forecast);
-                Log.d("Search", forecasts.toString());
+
 
             }
         } catch (IOException e) {

@@ -51,15 +51,14 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
 
         public class ForecastViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-            @BindView(R.id.image)
-            ImageView mImageView;
+//            @BindView(R.id.image)
+//            ImageView mImageView;
             @BindView(R.id.name)
             TextView mName;
             @BindView(R.id.date)
             TextView mDate;
             @BindView(R.id.max) TextView mMax;
-            @BindView(R.id.humidity) TextView mHumidity;
-            @BindView(R.id.precipitation) TextView mPrecipitation;
+            @BindView(R.id.min) TextView mMin;
 
             private Context mContext;
 
@@ -74,8 +73,9 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
             public void bindForecast(Forecast forecast) {
                // Picasso.with(mContext).load(forecast.getImage()).into(mImageView);
                 mMax.setText("High: " + forecast.getTemperature() + " F");
-                mHumidity.setText("Avg Humidity: " + forecast.getHumidity() + "%");
-                mPrecipitation.setText("Total Precip: " + forecast.getPrecipitation() + " mm");
+                mMin.setText("Low: " + forecast.getTemperatureMin() + " F");
+//                mHumidity.setText("Avg Humidity: " + forecast.getHumidity() + "%");
+//                mPrecipitation.setText("Total Precip: " + forecast.getPrecipitation() + " mm");
                 mName.setText(forecast.getCity());
                 mDate.setText(forecast.getDate());
 

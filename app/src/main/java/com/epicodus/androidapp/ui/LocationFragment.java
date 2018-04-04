@@ -26,14 +26,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LocationFragment extends Fragment implements View.OnClickListener {
-    @BindView(R.id.image)
-    ImageView mImage;
+//    @BindView(R.id.image)
+//    ImageView mImage;
     @BindView(R.id.max)
     TextView mTemp;
+    @BindView(R.id.min) TextView mMin;
     @BindView(R.id.humidity)
     TextView mHumidity;
     @BindView(R.id.avgPrecipitation)
     TextView mPrecipitation;
+    @BindView(R.id.wind) TextView mWind;
     @BindView(R.id.saveLocationButton)
     TextView mSavedLocationsButton;
 
@@ -65,9 +67,11 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
 //                .centerCrop()
 //                .into(mImage);
 
-        mTemp.setText("High: " + mForecast.getTemperature() + "F");
-        mHumidity.setText("Avg Humidity: " + mForecast.getHumidity());
-        mPrecipitation.setText("Total Precip: " + mForecast.getPrecipitation());
+        mTemp.setText("High: " + mForecast.getTemperature() + " F");
+        mMin.setText("Low: " + mForecast.getTemperatureMin() + " F");
+        mHumidity.setText("Avg Humidity: " + mForecast.getHumidity() + "%");
+        mPrecipitation.setText("Total Precip: " + mForecast.getPrecipitation() + "mm");
+        mWind.setText("Wind: " + mForecast.getWind() + " MPH");
 
         mSavedLocationsButton.setOnClickListener(this);
 
