@@ -65,9 +65,9 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
 //                .centerCrop()
 //                .into(mImage);
 
-        mTemp.setText(mForecast.getTemperature());
-        mHumidity.setText(mForecast.getHumidity());
-        mPrecipitation.setText(mForecast.getPrecipitation());
+        mTemp.setText("High: " + mForecast.getTemperature() + "F");
+        mHumidity.setText("Avg Humidity: " + mForecast.getHumidity());
+        mPrecipitation.setText("Total Precip: " + mForecast.getPrecipitation());
 
         mSavedLocationsButton.setOnClickListener(this);
 

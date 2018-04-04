@@ -29,6 +29,6 @@ public class LocalPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return mForecasts.get(position).getTemperature();
+        return mForecasts.get(position).getCity();
     }
 }

@@ -73,9 +73,9 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
 
             public void bindForecast(Forecast forecast) {
                // Picasso.with(mContext).load(forecast.getImage()).into(mImageView);
-                mMax.setText("Temperature: " + forecast.getTemperature() + " F");
-                mHumidity.setText("Humidity: " + forecast.getHumidity() + "%");
-                mPrecipitation.setText("Precipitation: " + forecast.getPrecipitation() + " mm");
+                mMax.setText("High: " + forecast.getTemperature() + " F");
+                mHumidity.setText("Avg Humidity: " + forecast.getHumidity() + "%");
+                mPrecipitation.setText("Total Precip: " + forecast.getPrecipitation() + " mm");
                 mName.setText(forecast.getCity());
                 mDate.setText(forecast.getDate());
 
