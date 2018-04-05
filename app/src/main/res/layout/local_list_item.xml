@@ -14,7 +14,6 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:background="#ffffff"
         android:layout_height="match_parent"
         android:padding="10dp">
 
@@ -24,7 +23,7 @@
             android:id="@+id/name"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:text="Restaurant Name"
+            android:text="City"
             android:textColor="@color/colorPrimary"/>
 
         <TextView
@@ -46,8 +45,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:textSize="15dp"
                 android:layout_marginEnd="94dp"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorPrimaryDark" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -55,7 +55,8 @@
                 android:id="@+id/min"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:textColor="@color/colorAccent"/>
+                android:textSize="15dp"
+                android:textColor="@color/colorPrimaryDark"/>
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

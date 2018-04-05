@@ -52,8 +52,8 @@ public class FirebaseViewHolder extends RecyclerView.ViewHolder implements View.
 
         city.setText(forecast.getCity());
         date.setText(forecast.getDate());
-        temp.setText(forecast.getTemperature());
-        tempMin.setText(forecast.getTemperatureMin());
+        temp.setText("High: " + forecast.getTemperature() + " F");
+        tempMin.setText("Low: " + forecast.getTemperatureMin() + " F");
        // humidity.setText(forecast.getHumidity());
        // precipitation.setText(forecast.getPrecipitation());
     }

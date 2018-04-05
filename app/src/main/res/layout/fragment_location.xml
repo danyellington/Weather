@@ -15,8 +15,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
+        android:layout_height="574dp"
+        android:background="@drawable/sky"
         android:orientation="vertical"
         android:padding="10dp">
 
@@ -52,8 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:textStyle="italic"
-            />
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/humidity"
@@ -82,15 +81,17 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textSize="20sp"
-            android:textStyle="italic"/>
+
+            android:textStyle="italic" />
 
         <Button
+            android:id="@+id/saveLocationButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save This Location"
-            android:id="@+id/saveLocationButton"
             android:layout_alignParentBottom="true"
             android:background="@color/LightSkyBlue"
+            android:text="Save This Location"
+            android:alpha="0.65"
             android:textColor="@color/colorTextIcons"
             android:textSize="15sp" />
 
