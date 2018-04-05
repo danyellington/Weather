@@ -44,7 +44,7 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
     public static LocationFragment newInstance(Forecast forecast) {
         LocationFragment locationFragment = new LocationFragment();
         Bundle args = new Bundle();
-        args.putParcelable("location", Parcels.wrap(forecast));
+        args.putParcelable("forecast", Parcels.wrap(forecast));
         locationFragment.setArguments(args);
         return locationFragment;
     }
@@ -53,7 +53,7 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mForecast = Parcels.unwrap(getArguments().getParcelable("location"));
+        mForecast = Parcels.unwrap(getArguments().getParcelable("forecast"));
     }
 
     @Override

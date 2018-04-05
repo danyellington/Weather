@@ -24,9 +24,6 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 
 public class FirebaseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-//    private static final int MAX_WIDTH = 200;
-//    private static final int MAX_HEIGHT = 200;
-
     View mView;
     Context mContext;
 
@@ -38,9 +35,12 @@ public class FirebaseViewHolder extends RecyclerView.ViewHolder implements View.
     }
 
     public void bindForecast(Forecast forecast) {
-        ImageView forecastImage = (ImageView) mView.findViewById(R.id.image);
+//        ImageView forecastImage = (ImageView) mView.findViewById(R.id.image);
+        TextView city = (TextView) mView.findViewById(R.id.name);
+        TextView date = (TextView) mView.findViewById(R.id.date);
         TextView temp = (TextView) mView.findViewById(R.id.max);
-        TextView humidity = (TextView) mView.findViewById(R.id.humidity);
+        //TextView humidity = (TextView) mView.findViewById(R.id.humidity);
+        TextView tempMin = (TextView) mView.findViewById(R.id.min);
       //  TextView precipitation = (TextView) mView.findViewById(R.id.precipitation);
 
 //        Picasso.with(mContext)
@@ -49,8 +49,12 @@ public class FirebaseViewHolder extends RecyclerView.ViewHolder implements View.
 //                .centerCrop()
 //                .into(forecastImage);
 
+
+        city.setText(forecast.getCity());
+        date.setText(forecast.getDate());
         temp.setText(forecast.getTemperature());
-        humidity.setText(forecast.getHumidity());
+        tempMin.setText(forecast.getTemperatureMin());
+       // humidity.setText(forecast.getHumidity());
        // precipitation.setText(forecast.getPrecipitation());
     }
 
@@ -70,7 +74,7 @@ public class FirebaseViewHolder extends RecyclerView.ViewHolder implements View.
 
                 Intent intent = new Intent(mContext, LocalActivity.class);
                 intent.putExtra("position", itemPosition + "");
-                intent.putExtra("location", Parcels.wrap(forecasts));
+                intent.putExtra("forecasts", Parcels.wrap(forecasts));
 
                 mContext.startActivity(intent);
             }

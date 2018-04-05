@@ -33,7 +33,7 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
 
         @Override
         public LocalAdapter.ForecastViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_local_list, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.local_list_item, parent, false);
             ForecastViewHolder viewHolder = new ForecastViewHolder(view);
             return viewHolder;
         }

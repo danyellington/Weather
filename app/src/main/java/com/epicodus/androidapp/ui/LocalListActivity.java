@@ -49,26 +49,25 @@ public class LocalListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
 
-        getForecasts(location);
+        getForecast(location);
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentLocation = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
 
         if (mRecentLocation != null) {
-            getForecasts(mRecentLocation);
+            getForecast(mRecentLocation);
         }
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        //inflater.inflate(R.menu.menu_search, menu);
+        inflater.inflate(R.menu.search_menu, menu);
         ButterKnife.bind(this);
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mEditor = mSharedPreferences.edit();
 
-        MenuItem menuItem = menu.findItem(R.id.locationEditText);
+        MenuItem menuItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -76,7 +75,7 @@ public class LocalListActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 addToSharedPreferences(query);
-                getForecasts(query);
+                getForecast(query);
                 return false;
             }
 
@@ -89,13 +88,12 @@ public class LocalListActivity extends AppCompatActivity {
 
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
 
-    private void getForecasts(String location) {
+    private void getForecast(String location) {
         final WeatherService weatherService = new WeatherService();
 
         weatherService.findForecast(location, new Callback() {

@@ -43,7 +43,6 @@ public class LocalActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
-        Log.d("wtf", location);
         getForecast(location);
 
 
@@ -78,6 +77,7 @@ public class LocalActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) {
                 forecasts = weatherService.processResults(response);
+
                 LocalActivity.this.runOnUiThread(new Runnable() {
 
                     @Override

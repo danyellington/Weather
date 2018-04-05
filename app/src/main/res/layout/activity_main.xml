@@ -25,30 +25,28 @@
         <!--android:text="Button" />-->
 
 
-    <EditText
-        android:id="@+id/locationEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/locationButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="108dp"
-        android:background="@color/colorTextIcons"
-        android:hint="Enter City or Zip Code"
-        android:padding="5dp" />
+    <!--<EditText-->
+        <!--android:id="@+id/locationEditText"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_above="@+id/locationButton"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginBottom="108dp"-->
+        <!--android:background="@color/colorTextIcons"-->
+        <!--android:hint="Enter City or Zip Code"-->
+        <!--android:padding="5dp" />-->
 
     <Button
+        android:id="@+id/locationButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Search"
-        android:id="@+id/locationButton"
-        android:background="@color/LightSkyBlue"
-        android:textColor="@color/colorTextIcons"
-        android:visibility="visible"
-        android:layout_above="@+id/savedLocationsButton"
-        android:layout_alignParentLeft="true"
+        android:layout_above="@+id/imageView2"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp"
-        android:alpha="0.65"/>
+        android:alpha="0.65"
+        android:background="@color/LightSkyBlue"
+        android:text="Get Local Weather"
+        android:textColor="@color/colorTextIcons"
+        android:visibility="visible" />
 
     <Button
         android:layout_width="match_parent"

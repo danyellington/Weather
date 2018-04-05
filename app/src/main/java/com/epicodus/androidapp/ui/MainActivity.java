@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,25 +20,32 @@ import com.epicodus.androidapp.Constants;
 import com.epicodus.androidapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+
+//    private DatabaseReference mSearchedLocationReference;
+//
+//    private ValueEventListener mSearchedLocationReferenceListener;
 
     @BindView(R.id.locationButton)
     Button mLocationButton;
     @BindView(R.id.savedLocationsButton) Button mSavedLocationsButton;
 //    @BindView(R.id.globalButton)
 //    ImageView mGlobalButton;
-    @BindView(R.id.locationEditText)
-    EditText mLocationEditText;
+//    @BindView(R.id.locationEditText)
+//    EditText mLocationEditText;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +53,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-
         Typeface rubikFont = Typeface.createFromAsset(getAssets(), "fonts/rubik.ttf");
-        
 
-        //mSavedLocationsButton.setOnClickListener(this);
+
+        mLocationButton.setOnClickListener(this);
+        mSavedLocationsButton.setOnClickListener(this);
+
         mAuth = FirebaseAuth.getInstance();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -58,51 +67,14 @@ public class MainActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName());
+                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
                 } else {
 
                 }
             }
-        };        mLocationButton.setOnClickListener(new View.OnClickListener() {
-
-
-            @Override
-            public void onClick(View v) {
-                String location = mLocationEditText.getText().toString().trim().replaceAll("\\s", "_");
-                if (!location.equals("")) {
-                    Intent intent = new Intent(MainActivity.this, LocalActivity.class);
-                    intent.putExtra("location", location);
-                    startActivity(intent);
-                }
-
-
-                mSavedLocationsButton.setOnClickListener(this);
-                if (v == mSavedLocationsButton) {
-                    Intent intent = new Intent(MainActivity.this, SavedLocationsActivity.class);
-                    startActivity(intent);
-                }
-
-
-            }
-        });
-
-//        ImageView Button = (ImageView) findViewById(R.id.globalButton);
-//        Button.setOnClickListener(new View.OnClickListener() {
-//
-//
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent();
-//                intent.setAction(Intent.ACTION_VIEW);
-//                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-//                intent.setData(Uri.parse("https://www.accuweather.com/en/world-weather"));
-//                startActivity(intent);
-//            }
-//
-//        });
-
-
+        };
     }
+
     @Override
     public void onStart() {
         super.onStart();
@@ -116,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -143,19 +116,19 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+    @Override
+    public void onClick(View v) {
 
+        if(v == mLocationButton) {
+            Intent intent = new Intent(MainActivity.this, LocalListActivity.class);
+            startActivity(intent);
+        }
 
-
-//        EditText Location = (EditText) findViewById(R.id.locationEditText);
-//        Intent i = new Intent(MainActivity.this, LocalActivity.class);
-//        i.putExtra("location", Location.getText().toString());
-//        startActivity(i);
-
+        if (v == mSavedLocationsButton) {
+            Intent intent = new Intent(MainActivity.this, SavedLocationsActivity.class);
+            startActivity(intent);
+        }
 
     }
 
-
-
-
-
-
+}

@@ -10,6 +10,8 @@ import com.epicodus.androidapp.R;
 import com.epicodus.androidapp.adapters.FirebaseViewHolder;
 import com.epicodus.androidapp.models.Forecast;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -30,7 +32,14 @@ public class SavedLocationsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_local);
         ButterKnife.bind(this);
 
-        mForecastReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_LOCATION);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mForecastReference = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_LOCATION)
+                .child(uid);
+
         setUpFirebaseAdapter();
     }
 
