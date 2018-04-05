@@ -40,6 +40,7 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
     TextView mSavedLocationsButton;
 
     private Forecast mForecast;
+    private static final int REQUEST_IMAGE_CAPTURE = 111;
 
     public static LocationFragment newInstance(Forecast forecast) {
         LocationFragment locationFragment = new LocationFragment();
@@ -53,6 +54,7 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         mForecast = Parcels.unwrap(getArguments().getParcelable("forecast"));
     }
 
@@ -77,6 +79,7 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
 
         return view;
     }
+
 
     @Override
     public void onClick(View v) {
