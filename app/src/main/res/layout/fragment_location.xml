@@ -7,11 +7,11 @@
     tools:context="com.epicodus.androidapp.ui.LocationFragment">
 
 
-    <ImageView
-        android:layout_width="130dp"
-        android:layout_height="100dp"
-        android:id="@+id/image"
-        android:scaleType="centerCrop"/>
+    <!--<ImageView-->
+        <!--android:layout_width="130dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:id="@+id/image"-->
+        <!--android:scaleType="centerCrop"/>-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -84,16 +84,28 @@
 
             android:textStyle="italic" />
 
+        <!--<ImageView-->
+            <!--android:id="@+id/goToRadarButton"-->
+            <!--android:layout_width="384dp"-->
+            <!--android:layout_height="91dp"-->
+            <!--android:src="@drawable/date" />-->
+
         <Button
             android:id="@+id/saveLocationButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:alpha="0.65"
             android:background="@color/LightSkyBlue"
             android:text="Save This Location"
-            android:alpha="0.65"
             android:textColor="@color/colorTextIcons"
             android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/goToRadarButton"
+            android:layout_width="384dp"
+            android:layout_height="62dp"
+            android:src="@drawable/radar" />
 
     </LinearLayout>
 </LinearLayout>

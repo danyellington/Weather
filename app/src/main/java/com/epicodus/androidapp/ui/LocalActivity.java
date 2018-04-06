@@ -1,11 +1,14 @@
 package com.epicodus.androidapp.ui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.epicodus.androidapp.R;
 import com.epicodus.androidapp.adapters.LocalAdapter;
@@ -27,8 +30,8 @@ public class LocalActivity extends AppCompatActivity {
 //    @BindView(R.id.locationTextView)
 //    TextView mLocationTextView;
 
-//    @BindView(R.id.goToRadarButton)
-//    ImageView mGoToRadarButton;
+    @BindView(R.id.goToRadarButton)
+    ImageView mGoToRadarButton;
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
     private LocalAdapter mAdapter;
@@ -46,21 +49,21 @@ public class LocalActivity extends AppCompatActivity {
         getForecast(location);
 
 
-//        ImageView Button = (ImageView) findViewById(R.id.goToRadarButton);
-//        Button.setOnClickListener(new View.OnClickListener() {
-//
-//
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent();
-//                intent.setAction(Intent.ACTION_VIEW);
-//                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-//                intent.setData(Uri.parse("https://radar.weather.gov"));
-//                startActivity(intent);
-//            }
-//
-//
-//        });
+        ImageView Button = (ImageView) findViewById(R.id.goToRadarButton);
+        Button.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://radar.weather.gov"));
+                startActivity(intent);
+            }
+
+
+        });
 
     }
 

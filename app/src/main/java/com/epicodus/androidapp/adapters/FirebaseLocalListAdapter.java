@@ -86,16 +86,16 @@ public class FirebaseLocalListAdapter extends FirebaseRecyclerAdapter<Forecast, 
 
         });
 
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, LocalDetailActivity.class);
-                intent.putExtra("position", viewHolder.getAdapterPosition());
-                intent.putExtra("restaurants", Parcels.wrap(mForecasts));
-                mContext.startActivity(intent);
-            }
-        });
+//        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(mContext, LocalDetailActivity.class);
+//                intent.putExtra("position", viewHolder.getAdapterPosition());
+//                intent.putExtra("restaurants", Parcels.wrap(mForecasts));
+//                mContext.startActivity(intent);
+//            }
+//        });
     }
 
     @Override
