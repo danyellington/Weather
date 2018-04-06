@@ -58,6 +58,7 @@ public class LocalListActivity extends AppCompatActivity {
             getForecast(mRecentLocation);
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
