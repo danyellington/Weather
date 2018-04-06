@@ -27,15 +27,18 @@ public class FirebaseViewHolder extends RecyclerView.ViewHolder implements View.
     View mView;
     Context mContext;
 
+    public TextView mDate;
+
     public FirebaseViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
+
     }
 
     public void bindForecast(Forecast forecast) {
-//        ImageView forecastImage = (ImageView) mView.findViewById(R.id.image);
+        mDate = (TextView) mView.findViewById(R.id.date);
+       // ImageView forecastImage = (ImageView) mView.findViewById(R.id.image);
         TextView city = (TextView) mView.findViewById(R.id.name);
         TextView date = (TextView) mView.findViewById(R.id.date);
         TextView temp = (TextView) mView.findViewById(R.id.max);
@@ -57,6 +60,7 @@ public class FirebaseViewHolder extends RecyclerView.ViewHolder implements View.
        // humidity.setText(forecast.getHumidity());
        // precipitation.setText(forecast.getPrecipitation());
     }
+
 
     @Override
     public void onClick(View view) {

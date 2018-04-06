@@ -18,6 +18,7 @@ public class Forecast {
     String date;
     String city;
     String pushId;
+    String index;
 
     public Forecast() {
     }
@@ -31,6 +32,7 @@ public class Forecast {
         this.date = date;
         this.city = city;
         this.pushId = pushId;
+        this.index = "not_specified";
     }
 
     public String getTemperature() {
@@ -93,4 +95,8 @@ public class Forecast {
     public void setPushId(String pushId) {
         this.pushId = pushId;
     }
+
+    public String getIndex() { return index; }
+
+    public void setIndex(String s) { this.index = index; }
 }
