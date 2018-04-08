@@ -97,7 +97,7 @@
             android:layout_alignParentBottom="true"
             android:alpha="0.65"
             android:background="@color/LightSkyBlue"
-            android:text="Save This Day"
+            android:text="Save"
             android:textColor="@color/colorTextIcons"
             android:textSize="15sp" />
 

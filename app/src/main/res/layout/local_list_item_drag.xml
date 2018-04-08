@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:background="@drawable/sky"
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -12,33 +12,34 @@
     <!--android:scaleType="centerCrop"/>-->
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:background="@drawable/sky"
+        android:layout_height="165dp"
+        android:orientation="vertical"
         android:padding="10dp">
 
         <TextView
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/name"
-            android:textSize="20dp"
-            android:textStyle="bold"
             android:text="City"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/date"
-            android:text="date"
-            android:layout_below="@+id/restaurantNameTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:textStyle="italic"/>
+            android:layout_below="@+id/city"
+            android:text="date"
+            android:textStyle="italic" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="469dp">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/max"
@@ -55,9 +56,8 @@
                 android:id="@+id/min"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_alignStart="@+id/max"
-                android:layout_below="@+id/max"
-                android:layout_marginTop="77dp"
                 android:text="min"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="15dp" />

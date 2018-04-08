@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:background="@drawable/sky"
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -12,44 +12,45 @@
     <!--android:scaleType="centerCrop"/>-->
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="157dp"
+        android:background="@drawable/sky"
+        android:orientation="vertical"
         android:padding="10dp">
 
         <TextView
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/name"
-            android:textSize="20dp"
-            android:textStyle="bold"
             android:text="City"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/date"
-            android:text="date"
-            android:layout_below="@+id/restaurantNameTextView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:textStyle="italic"/>
+            android:layout_below="@+id/restaurantNameTextView"
+            android:text="date"
+            android:textStyle="italic" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="111dp">
 
             <TextView
                 android:id="@+id/max"
-                android:text="max"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:textSize="15dp"
-                android:layout_marginEnd="94dp"
-                android:textColor="@color/colorPrimaryDark" />
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="64dp"
+                android:text="max"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/min"

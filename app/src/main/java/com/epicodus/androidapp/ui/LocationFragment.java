@@ -72,11 +72,6 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_location, container, false);
         ButterKnife.bind(this, view);
 
-//        Picasso.with(view.getContext())
-//                .load(mForecast.getImage())
-//                //.resize(MAX_WIDTH, MAX_HEIGHT)
-//                .centerCrop()
-//                .into(mImage);
         mName.setText(mForecast.getCity());
         mDate.setText(mForecast.getDate());
         mTemp.setText("High: " + mForecast.getTemperature() + " F");

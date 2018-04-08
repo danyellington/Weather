@@ -27,11 +27,7 @@ import okhttp3.Response;
 
 public class LocalActivity extends AppCompatActivity {
     public static final String TAG = LocalActivity.class.getSimpleName();
-//    @BindView(R.id.locationTextView)
-//    TextView mLocationTextView;
 
-//    @BindView(R.id.goToRadarButton)
-//    ImageView mGoToRadarButton;
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
     private LocalAdapter mAdapter;
@@ -48,22 +44,6 @@ public class LocalActivity extends AppCompatActivity {
         String location = intent.getStringExtra("location");
         getForecast(location);
 
-
-//        ImageView Button = (ImageView) findViewById(R.id.goToRadarButton);
-//        Button.setOnClickListener(new View.OnClickListener() {
-//
-//
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent();
-//                intent.setAction(Intent.ACTION_VIEW);
-//                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-//                intent.setData(Uri.parse("https://radar.weather.gov"));
-//                startActivity(intent);
-//            }
-//
-//
-//        });
 
     }
 

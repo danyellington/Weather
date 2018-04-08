@@ -7,10 +7,12 @@
     tools:context=".ui.LocalListActivity">
 
     <fragment
-        android:id="@+id/fragmentRestaurantList"
+        android:id="@+id/fragmentForecastList"
         android:name="com.epicodus.androidapp.ui.LocalListFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         tools:layout="@layout/fragment_local_list" />
 
 </RelativeLayout>

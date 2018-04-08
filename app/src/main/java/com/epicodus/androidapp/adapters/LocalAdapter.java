@@ -111,7 +111,7 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ForecastView
         private void createDetailFragment(int position) {
             LocationFragment detailFragment = LocationFragment.newInstance(mForecasts, position);
             FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.restaurantDetailContainer, detailFragment);
+            ft.replace(R.id.forecastDetailContainer, detailFragment);
             ft.commit();
         }
 
