@@ -1,14 +1,19 @@
 package com.epicodus.androidapp.adapters;
 
-
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.epicodus.androidapp.Constants;
+import com.epicodus.androidapp.R;
 import com.epicodus.androidapp.models.Forecast;
 import com.epicodus.androidapp.ui.LocalDetailActivity;
+import com.epicodus.androidapp.ui.LocationFragment;
 import com.epicodus.androidapp.util.ItemTouchHelperAdapter;
 import com.epicodus.androidapp.util.OnStartDragListener;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -20,6 +25,7 @@ import com.google.firebase.database.Query;
 
 import org.parceler.Parcels;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -30,7 +36,7 @@ public class FirebaseLocalListAdapter extends FirebaseRecyclerAdapter<Forecast, 
     private Context mContext;
     private ChildEventListener mChildEventListener;
     private ArrayList<Forecast> mForecasts = new ArrayList<>();
-
+    private int mOrientation;
 
     public FirebaseLocalListAdapter(Class<Forecast> modelClass, int modelLayout,
                                          Class<FirebaseViewHolder> viewHolderClass,
@@ -74,8 +80,11 @@ public class FirebaseLocalListAdapter extends FirebaseRecyclerAdapter<Forecast, 
     protected void populateViewHolder(final FirebaseViewHolder viewHolder, Forecast model, int position) {
         viewHolder.bindForecast(model);
 
+        mOrientation = viewHolder.itemView.getResources().getConfiguration().orientation;
+        if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+            createDetailFragment(0);
+        }
         viewHolder.mDate.setOnTouchListener(new View.OnTouchListener() {
-
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
@@ -83,20 +92,34 @@ public class FirebaseLocalListAdapter extends FirebaseRecyclerAdapter<Forecast, 
                 }
                 return false;
             }
-
         });
 
-//        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(mContext, LocalDetailActivity.class);
-//                intent.putExtra("position", viewHolder.getAdapterPosition());
-//                intent.putExtra("restaurants", Parcels.wrap(mForecasts));
-//                mContext.startActivity(intent);
-//            }
-//        });
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                int itemPosition = viewHolder.getAdapterPosition();
+                if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    createDetailFragment(itemPosition);
+                } else {
+                    Intent intent = new Intent(mContext, LocalDetailActivity.class);
+                    intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
+                    intent.putExtra(Constants.EXTRA_KEY_FORECASTS, Parcels.wrap(mForecasts));
+                    mContext.startActivity(intent);
+                }
+            }
+        });
+
     }
+
+
+    private void createDetailFragment(int position) {
+        LocationFragment detailFragment = LocationFragment.newInstance(mForecasts, position);
+        FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.localDetailContainer, detailFragment);
+        ft.commit();
+    }
+
 
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {

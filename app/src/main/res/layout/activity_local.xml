@@ -2,18 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
     android:background="@drawable/sky"
-    tools:context=".ui.LocalActivity">
+    android:layout_height="match_parent"
+    tools:context=".ui.LocalListActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerView"/>
-
+    <fragment
+        android:id="@+id/fragmentRestaurantList"
+        android:name="com.epicodus.androidapp.ui.LocalListFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout="@layout/fragment_local_list" />
 
 </RelativeLayout>

@@ -19,7 +19,7 @@ public class LocalPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return LocationFragment.newInstance(mForecasts.get(position));
+        return LocationFragment.newInstance(mForecasts, position);
     }
 
     @Override

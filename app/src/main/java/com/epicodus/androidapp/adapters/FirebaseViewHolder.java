@@ -1,6 +1,8 @@
 package com.epicodus.androidapp.adapters;
 
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +14,7 @@ import com.epicodus.androidapp.Constants;
 import com.epicodus.androidapp.R;
 import com.epicodus.androidapp.models.Forecast;
 import com.epicodus.androidapp.ui.LocalActivity;
+import com.epicodus.androidapp.util.ItemTouchHelperViewHolder;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +26,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+public class FirebaseViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
     View mView;
     Context mContext;
 
@@ -63,30 +66,19 @@ public class FirebaseViewHolder extends RecyclerView.ViewHolder implements View.
 
 
     @Override
-    public void onClick(View view) {
-        final ArrayList<Forecast> forecasts = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_LOCATION);
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+    public void onItemSelected() {
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext,
+                R.animator.drag_scale_on);
+        set.setTarget(itemView);
+        set.start();
+    }
 
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    forecasts.add(snapshot.getValue(Forecast.class));
-                }
-
-                int itemPosition = getLayoutPosition();
-
-                Intent intent = new Intent(mContext, LocalActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("forecasts", Parcels.wrap(forecasts));
-
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
+    @Override
+    public void onItemClear() {
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext,
+                R.animator.drag_scale_off);
+        set.setTarget(itemView);
+        set.start();
     }
 }
 

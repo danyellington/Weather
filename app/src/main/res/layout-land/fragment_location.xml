@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.epicodus.androidapp.ui.LocationFragment">
+
+
+    <!--<ImageView-->
+    <!--android:layout_width="130dp"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:id="@+id/image"-->
+    <!--android:scaleType="centerCrop"/>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="574dp"
+        android:background="@drawable/sky"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/name"
+            android:text="City"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/date"
+            android:text="date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="max"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+
+        <TextView
+            android:id="@+id/min"
+            android:text="min"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="Humidity: "
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/avgPrecipitation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="Precipitation: "
+            android:textSize="20sp"
+            android:textStyle="italic" />
+
+
+        <TextView
+            android:id="@+id/wind"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="wind"
+            android:textSize="20sp"
+
+            android:textStyle="italic" />
+
+        <!--<ImageView-->
+        <!--android:id="@+id/goToRadarButton"-->
+        <!--android:layout_width="384dp"-->
+        <!--android:layout_height="91dp"-->
+        <!--android:src="@drawable/date" />-->
+
+        <Button
+            android:id="@+id/saveLocationButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:alpha="0.65"
+            android:background="@color/LightSkyBlue"
+            android:text="Save"
+            android:textColor="@color/colorTextIcons"
+            android:textSize="15sp" />
+
+
+
+    </LinearLayout>
+</LinearLayout>

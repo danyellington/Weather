@@ -22,12 +22,17 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LocationFragment extends Fragment implements View.OnClickListener {
-//    @BindView(R.id.image)
-//    ImageView mImage;
+
+    @BindView(R.id.name)
+    TextView mName;
+    @BindView(R.id.date)
+    TextView mDate;
     @BindView(R.id.max)
     TextView mTemp;
     @BindView(R.id.min) TextView mMin;
@@ -38,14 +43,17 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.wind) TextView mWind;
     @BindView(R.id.saveLocationButton)
     TextView mSavedLocationsButton;
-
+    private int mPosition;
     private Forecast mForecast;
-    private static final int REQUEST_IMAGE_CAPTURE = 111;
+    private ArrayList<Forecast> mForecasts;
 
-    public static LocationFragment newInstance(Forecast forecast) {
+    public static LocationFragment newInstance (ArrayList<Forecast> forecasts, Integer position) {
         LocationFragment locationFragment = new LocationFragment();
         Bundle args = new Bundle();
-        args.putParcelable("forecast", Parcels.wrap(forecast));
+
+        args.putParcelable(Constants.EXTRA_KEY_FORECASTS, Parcels.wrap(forecasts));
+        args.putInt(Constants.EXTRA_KEY_POSITION, position);
+
         locationFragment.setArguments(args);
         return locationFragment;
     }
@@ -54,8 +62,9 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-        mForecast = Parcels.unwrap(getArguments().getParcelable("forecast"));
+        mForecasts = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_FORECASTS));
+        mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
+        mForecast = mForecasts.get(mPosition);
     }
 
     @Override
@@ -68,7 +77,8 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
 //                //.resize(MAX_WIDTH, MAX_HEIGHT)
 //                .centerCrop()
 //                .into(mImage);
-
+        mName.setText(mForecast.getCity());
+        mDate.setText(mForecast.getDate());
         mTemp.setText("High: " + mForecast.getTemperature() + " F");
         mMin.setText("Low: " + mForecast.getTemperatureMin() + " F");
         mHumidity.setText("Avg Humidity: " + mForecast.getHumidity() + "%");
@@ -88,12 +98,12 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             String uid = user.getUid();
 
-            DatabaseReference restaurantRef = FirebaseDatabase
+            DatabaseReference forecastRef = FirebaseDatabase
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_LOCATION)
                     .child(uid);
 
-            DatabaseReference pushRef = restaurantRef.push();
+            DatabaseReference pushRef = forecastRef.push();
             String pushId = pushRef.getKey();
             mForecast.setPushId(pushId);
             pushRef.setValue(mForecast);
@@ -102,6 +112,8 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
         }
 
     }
+
+
 }
 
 
