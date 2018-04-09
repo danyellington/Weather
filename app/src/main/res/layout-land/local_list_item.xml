@@ -42,14 +42,15 @@
 
             <TextView
                 android:id="@+id/max"
-                android:text="max"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:textSize="15dp"
-                android:layout_marginEnd="94dp"
-                android:textColor="@color/colorPrimaryDark" />
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="197dp"
+                android:layout_marginTop="12dp"
+                android:text="max"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/min"

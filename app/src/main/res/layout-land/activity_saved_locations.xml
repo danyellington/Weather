@@ -9,7 +9,7 @@
     android:layout_height="match_parent" >
 
     <fragment
-        android:id="@+id/fragmentItemsList"
+        android:id="@+id/fragmentForecastList"
         android:name="com.epicodus.androidapp.ui.SavedLocationsFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"

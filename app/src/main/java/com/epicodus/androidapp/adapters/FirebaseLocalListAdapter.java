@@ -1,5 +1,6 @@
 package com.epicodus.androidapp.adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -76,6 +77,7 @@ public class FirebaseLocalListAdapter extends FirebaseRecyclerAdapter<Forecast, 
         });
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void populateViewHolder(final FirebaseViewHolder viewHolder, Forecast model, int position) {
         viewHolder.bindForecast(model);

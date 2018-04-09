@@ -6,7 +6,7 @@
     tools:context=".ui.LocalListActivity">
 
     <fragment
-        android:id="@+id/fragmentRestaurantList"
+        android:id="@+id/fragmentForecastList"
         android:name="com.epicodus.androidapp.ui.SavedLocationsFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

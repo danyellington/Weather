@@ -10,7 +10,7 @@
     android:layout_height="match_parent" >
 
     <fragment
-        android:id="@+id/fragmentItemsList"
+        android:id="@+id/fragmentForecastList"
         android:name="com.epicodus.androidapp.ui.LocalListFragment"
         android:layout_height="match_parent"
         android:layout_width="0dp"
